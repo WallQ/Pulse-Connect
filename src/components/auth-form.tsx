@@ -1,9 +1,9 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useLocalStorage } from '@uidotdev/usehooks';
 import { Loader2, Twitter } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -28,18 +28,24 @@ interface StoredData {
 
 const SignInForm = () => {
 	const { toast } = useToast();
-	const storedData = JSON.parse(
-		localStorage.getItem('remember') ?? '{}',
-	) as StoredData;
 
 	const form = useForm<ISignIn>({
 		resolver: zodResolver(signInSchema),
 		defaultValues: {
-			email: storedData.email || '',
-			password: storedData.password || '',
-			remember: storedData.remember || false,
+			email: '',
+			password: '',
+			remember: false,
 		},
 	});
+
+	useEffect(() => {
+		const storedData = JSON.parse(
+			localStorage.getItem('remember') ?? '{}',
+		) as StoredData;
+		form.setValue('email', storedData.email || '');
+		form.setValue('password', storedData.password || '');
+		form.setValue('remember', storedData.remember || false);
+	}, [form]);
 
 	const onSubmit = (data: ISignIn) => {
 		if (data.remember) {
