@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Twitter } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -28,6 +28,7 @@ interface StoredData {
 
 const SignInForm = () => {
 	const { toast } = useToast();
+	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
 	const form = useForm<ISignIn>({
 		resolver: zodResolver(signInSchema),
@@ -54,6 +55,8 @@ const SignInForm = () => {
 			localStorage.removeItem('remember');
 		}
 
+		setIsSubmitting(true);
+
 		toast({
 			title: 'You submitted the following values:',
 			description: (
@@ -65,10 +68,19 @@ const SignInForm = () => {
 			),
 			duration: 5000,
 		});
+
 		console.log(data);
 
 		setTimeout(() => {
-			form.reset();
+			form.setError('email', {
+				type: 'custom',
+				message: 'The email provided is not valid.',
+			});
+			form.setError('password', {
+				type: 'custom',
+				message: 'The password provided is incorrect.',
+			});
+			setIsSubmitting(false);
 		}, 2500);
 	};
 
@@ -130,8 +142,8 @@ const SignInForm = () => {
 				<Button
 					type='submit'
 					className='w-full'
-					disabled={form.formState.isSubmitting}>
-					{form.formState.isSubmitting ? (
+					disabled={form.formState.isSubmitting || isSubmitting}>
+					{isSubmitting ? (
 						<>
 							<Loader2 className='mr-2 h-4 w-4 animate-spin' />
 							Submitting...
