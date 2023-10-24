@@ -43,7 +43,7 @@ const config = {
         ],
         "pathGroupsExcludedImportTypes": ["components/ui/**"]
       }
-    ]
+    ],
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
 		'@tanstack/query/exhaustive-deps': 'error',
