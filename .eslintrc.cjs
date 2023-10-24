@@ -4,7 +4,7 @@ const config = {
 	parserOptions: {
 		project: true,
 	},
-	plugins: ['@typescript-eslint', 'simple-import-sort', '@tanstack/query'],
+	plugins: ['@typescript-eslint', /* 'simple-import-sort',*/ '@tanstack/query'],
 	extends: [
 		'next/core-web-vitals',
 		'plugin:@typescript-eslint/recommended-type-checked',
@@ -31,21 +31,8 @@ const config = {
 				checksVoidReturn: { attributes: false },
 			},
 		],
-		  "import/order": [
-      "error",
-      {
-        "groups": [["builtin", "external"], ["internal", "parent", "sibling", "index"]],
-        "pathGroups": [
-          {
-            pattern: "components/ui/**",
-            group: "internal"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["components/ui/**"]
-      }
-    ],
-		'simple-import-sort/imports': 'error',
-		'simple-import-sort/exports': 'error',
+		// 'simple-import-sort/imports': 'error',
+		// 'simple-import-sort/exports': 'error',
 		'@tanstack/query/exhaustive-deps': 'error',
 		'@tanstack/query/stable-query-client': 'error',
 	},
