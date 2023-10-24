@@ -66,6 +66,10 @@ const SignInForm = () => {
 			duration: 5000,
 		});
 		console.log(data);
+
+		setTimeout(() => {
+			form.reset();
+		}, 2500);
 	};
 
 	return (
@@ -127,10 +131,14 @@ const SignInForm = () => {
 					type='submit'
 					className='w-full'
 					disabled={form.formState.isSubmitting}>
-					{form.formState.isSubmitting && (
-						<Loader2 className='mr-2 h-4 w-4 animate-spin' />
+					{form.formState.isSubmitting ? (
+						<>
+							<Loader2 className='mr-2 h-4 w-4 animate-spin' />
+							Submitting...
+						</>
+					) : (
+						'Submit'
 					)}
-					Submit
 				</Button>
 				<Separator />
 				<Button type='button' variant='outline' className='w-full'>
