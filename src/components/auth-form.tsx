@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { Loader2, Twitter } from 'lucide-react';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -113,7 +113,7 @@ const SignInForm = () => {
 						</FormItem>
 					)}
 				/>
-				<Button type='submit' className='w-full'>
+				<Button type='submit' className='w-full' disabled={form.formState.isSubmitted}>
 					{form.formState.isSubmitted && (
 						<Loader2 className='mr-2 h-4 w-4 animate-spin' />
 					)}
