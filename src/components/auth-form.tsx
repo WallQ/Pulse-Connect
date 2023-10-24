@@ -37,6 +37,7 @@ const SignInForm = () => {
 		},
 	});
 
+	('use client');
 	const onSubmit = (data: ISignIn) => {
 		if (data.remember) {
 			setRemember(data);
@@ -113,7 +114,10 @@ const SignInForm = () => {
 						</FormItem>
 					)}
 				/>
-				<Button type='submit' className='w-full' disabled={form.formState.isSubmitted}>
+				<Button
+					type='submit'
+					className='w-full'
+					disabled={form.formState.isSubmitted}>
 					{form.formState.isSubmitted && (
 						<Loader2 className='mr-2 h-4 w-4 animate-spin' />
 					)}
