@@ -20,29 +20,32 @@ import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/components/ui/use-toast';
 import { type ISignIn, signInSchema } from '@/validators/auth';
 
+interface StoredData {
+	email: string;
+	password: string;
+	remember: boolean;
+}
+
 const SignInForm = () => {
 	const { toast } = useToast();
-	const [remember, setRemember] = useLocalStorage<ISignIn>('remember', {
-		email: '',
-		password: '',
-		remember: false,
-	});
+	const storedData = JSON.parse(
+		localStorage.getItem('remember') ?? '{}',
+	) as StoredData;
 
 	const form = useForm<ISignIn>({
 		resolver: zodResolver(signInSchema),
 		defaultValues: {
-			email: remember.email,
-			password: remember.password,
-			remember: remember.remember,
+			email: storedData.email || '',
+			password: storedData.password || '',
+			remember: storedData.remember || false,
 		},
 	});
 
-	('use client');
 	const onSubmit = (data: ISignIn) => {
 		if (data.remember) {
-			setRemember(data);
+			localStorage.setItem('remember', JSON.stringify(data));
 		} else {
-			setRemember({ email: '', password: '', remember: false });
+			localStorage.removeItem('remember');
 		}
 
 		toast({
