@@ -36,6 +36,7 @@ const config = {
 		'@tanstack/query/exhaustive-deps': 'error',
 		'@tanstack/query/stable-query-client': 'error',
 	},
+	 "ignorePatterns": ["**/components/ui/*.tsx", "**/components/ui/*.ts"],
 };
 
 module.exports = config;
