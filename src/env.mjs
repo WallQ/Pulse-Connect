@@ -15,8 +15,10 @@ export const env = createEnv({
 			process.env.VERCEL ? z.string() : z.string().url(),
 		),
 		API_URL: z.string().url(),
+		RECAPTCHA_SECRET_KEY: z.string(),
 	},
 	client: {
+		NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string(),
 		// NEXT_PUBLIC_CLIENTVAR: z.string(),
 	},
 	runtimeEnv: {
@@ -24,6 +26,8 @@ export const env = createEnv({
 		NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
 		NEXTAUTH_URL: process.env.NEXTAUTH_URL,
 		API_URL: process.env.API_URL,
+		NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+		RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
 		// NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 	},
 	skipValidation: !!process.env.SKIP_ENV_VALIDATION,
