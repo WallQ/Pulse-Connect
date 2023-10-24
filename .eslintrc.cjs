@@ -4,7 +4,7 @@ const config = {
 	parserOptions: {
 		project: true,
 	},
-	plugins: ['@typescript-eslint', '@tanstack/query'],
+	plugins: ['@typescript-eslint', 'simple-import-sort', '@tanstack/query'],
 	extends: [
 		'next/core-web-vitals',
 		'plugin:@typescript-eslint/recommended-type-checked',
@@ -14,7 +14,6 @@ const config = {
 	rules: {
 		'@typescript-eslint/array-type': 'off',
 		'@typescript-eslint/consistent-type-definitions': 'off',
-
 		'@typescript-eslint/consistent-type-imports': [
 			'warn',
 			{
@@ -32,6 +31,8 @@ const config = {
 				checksVoidReturn: { attributes: false },
 			},
 		],
+		'simple-import-sort/imports': 'error',
+		'simple-import-sort/exports': 'error',
 		'@tanstack/query/exhaustive-deps': 'error',
 		'@tanstack/query/stable-query-client': 'error',
 	},
