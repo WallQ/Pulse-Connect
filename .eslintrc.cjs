@@ -31,6 +31,19 @@ const config = {
 				checksVoidReturn: { attributes: false },
 			},
 		],
+		  "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external"], ["internal", "parent", "sibling", "index"]],
+        "pathGroups": [
+          {
+            pattern: "components/ui/**",
+            group: "internal"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["components/ui/**"]
+      }
+    ]
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
 		'@tanstack/query/exhaustive-deps': 'error',
