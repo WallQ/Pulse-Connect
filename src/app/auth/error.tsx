@@ -2,23 +2,24 @@
 
 import { AlertCircle } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button, buttonVariants } from '@/components/ui/button';
 
-export default function SignInError({
-	error,
-	reset,
-}: {
+type AuthErrorProps = {
 	error: Error;
 	reset: () => void;
-}) {
+};
+
+const AuthError: React.FunctionComponent<AuthErrorProps> = ({
+	error,
+	reset,
+}): React.ReactNode => {
 	return (
-		<div className='flex h-screen w-full items-center justify-center p-12 align-middle'>
-			<Alert variant='destructive' className='flex w-1/4 flex-col'>
+		<div className='flex flex-1 flex-col items-center justify-center align-middle'>
+			<Alert variant='destructive' className='w-3/4'>
 				<AlertCircle className='h-4 w-4' />
-				<AlertTitle>Sign in error!</AlertTitle>
+				<AlertTitle>Authentication error!</AlertTitle>
 				<AlertDescription>
 					{error.message || 'An unexpected error has occurred.'}
 				</AlertDescription>
@@ -40,4 +41,6 @@ export default function SignInError({
 			</Alert>
 		</div>
 	);
-}
+};
+
+export default AuthError;
