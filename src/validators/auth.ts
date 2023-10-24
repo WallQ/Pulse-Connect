@@ -45,6 +45,7 @@ export const signUpSchema = z
 		email: emailConstraints(),
 		password: passwordConstraints(),
 		confirmPassword: passwordConstraints(),
+		remember: z.boolean().optional(),
 	})
 	.refine(
 		(data) => {
