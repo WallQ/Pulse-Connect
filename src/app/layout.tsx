@@ -65,7 +65,7 @@ export const metadata: Metadata = {
 		siteName: 'Pulse Connect',
 		images: [
 			{
-				url: 'https://pulse-connect-omega.vercel.app/logo/Logo Transparent.svg',
+				url: 'https://pulse-connect-omega.vercel.app/logo/og-image.png',
 				width: 1200,
 				height: 630,
 				alt: 'Pulse Connect',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
 		creator: '@pulseconnect',
 		images: [
 			{
-				url: 'https://pulse-connect-omega.vercel.app/logo/Logo Transparent.svg',
+				url: 'https://pulse-connect-omega.vercel.app/logo/twitter-image.png',
 				width: 1200,
 				height: 630,
 				alt: 'Pulse Connect',
