@@ -68,19 +68,26 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({
+type RootLayoutProps = {
+	children: React.ReactNode;
+};
+
+const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 	children,
 }: {
 	children: React.ReactNode;
-}) {
+}) => {
 	return (
 		<html lang='en'>
-			<body className={`font-sans ${inter.variable}`}>
+			<body
+				className={`font-sans ${inter.variable} flex w-full flex-col items-start justify-start align-middle`}>
 				<Providers>
-					<main>{children}</main>
+					{children}
 					<Toaster />
 				</Providers>
 			</body>
 		</html>
 	);
-}
+};
+
+export default RootLayout;

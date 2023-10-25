@@ -7,12 +7,12 @@ import { redirect } from 'next/navigation';
 export default async function HomePage() {
 	const session = await getServerAuthSession();
 
-	if (!session) {
-		redirect(ROUTES.AUTH.SIGNIN);
-	}
+	// if (!session) {
+	// 	redirect(ROUTES.AUTH.SIGNIN);
+	// }
 
 	return (
-		<div>
+		<main>
 			<h1>Hello World!</h1>
 			<Link href={ROUTES.AUTH.SIGNIN}>
 				<span className='text-base text-black'>Sign In</span>
@@ -20,6 +20,6 @@ export default async function HomePage() {
 			<Link href={ROUTES.AUTH.SIGNUP}>
 				<span className='text-base text-black'>Sign Up</span>
 			</Link>
-		</div>
+		</main>
 	);
 }
