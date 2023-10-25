@@ -7,6 +7,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 import { signIn } from '@/services/auth/signin';
 import { signInSchema } from '@/validators/auth';
+import { ROUTES } from '@/constants/routes';
 
 declare module 'next-auth' {
 	interface Session extends DefaultSession {
@@ -48,16 +49,23 @@ export const authOptions: NextAuthOptions = {
 				const { email, password } =
 					await signInSchema.parseAsync(credentials);
 
-				const user = await signIn({ email, password });
+				// const user = await signIn({ email, password });
 
-				if (!user) return null;
+				// if (!user) return null;
 
+				// return {
+				// 	id: user.id,
+				// 	username: user.username,
+				// 	email: user.email,
+				// 	firstName: user.firstName,
+				// 	lastName: user.lastName,
+				// };
 				return {
-					id: user.id,
-					username: user.username,
-					email: user.email,
-					firstName: user.firstName,
-					lastName: user.lastName,
+					id: '12345',
+					username: 'Pulse Connect',
+					email: 'user@pulseconnect.com',
+					firstName: 'Pulse',
+					lastName: 'Connect',
 				};
 			},
 		}),
@@ -80,8 +88,8 @@ export const authOptions: NextAuthOptions = {
 		maxAge: 30 * 24 * 60 * 60,
 	},
 	pages: {
-		signIn: '/auth/signin',
-		newUser: '/auth/signup',
+		signIn: ROUTES.AUTH.SIGNIN,
+		newUser: ROUTES.AUTH.SIGNUP,
 	},
 	secret: process.env.NEXTAUTH_SECRET,
 	useSecureCookies: process.env.NODE_ENV === 'production',
