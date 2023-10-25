@@ -40,7 +40,7 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 
 	const onSubmit = (data: ISignUp) => {
 		setIsSubmitting(true);
-
+		console.log(data);
 		setIsSubmitting(false);
 	};
 

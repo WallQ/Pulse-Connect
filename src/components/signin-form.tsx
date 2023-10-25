@@ -79,7 +79,10 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 			redirect: true,
 		});
 
-		redirect(ROUTES.HOME);
+		if (response?.error) {
+			setIsSubmitting(false);
+			redirect(ROUTES.HOME);
+		}
 	};
 
 	return (

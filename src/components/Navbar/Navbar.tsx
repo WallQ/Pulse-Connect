@@ -1,11 +1,12 @@
 'use client';
 
+import { ChevronDown, LogOut, Search, Settings, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { ChevronDown, LogOut, Search, Settings, User } from 'lucide-react';
+import { signOut } from 'next-auth/react';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -15,7 +16,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { signOut } from 'next-auth/react';
+import { Input } from '@/components/ui/input';
 
 const Navbar: React.FunctionComponent = (): React.ReactNode => {
 	return (

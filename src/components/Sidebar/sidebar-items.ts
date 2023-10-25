@@ -1,11 +1,12 @@
 import {
-	Home,
-	Users,
-	MessageCircle,
 	Bell,
-	User,
+	Home,
 	type LucideProps,
+	MessageCircle,
+	User,
+	Users,
 } from 'lucide-react';
+
 import { ROUTES } from '@/constants/routes';
 
 export type SidebarItem = {

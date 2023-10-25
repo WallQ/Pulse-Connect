@@ -1,16 +1,17 @@
 'use client';
 
-import { Menu, Settings, LogOut } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { LogOut,Menu, Settings } from 'lucide-react';
 import Link from 'next/link';
-import { ROUTES } from '@/constants/routes';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+
 import {
-	sidebarItems,
 	type SidebarItem,
+	sidebarItems,
 } from '@/components/Sidebar/sidebar-items';
+import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/constants/routes';
 
 const Sidebar: React.FunctionComponent = (): React.ReactNode => {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

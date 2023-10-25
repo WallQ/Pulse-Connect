@@ -5,9 +5,8 @@ import {
 } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-import { signIn } from '@/services/auth/signin';
-import { signInSchema } from '@/validators/auth';
 import { ROUTES } from '@/constants/routes';
+import { signInSchema } from '@/validators/auth';
 
 declare module 'next-auth' {
 	interface Session extends DefaultSession {
@@ -48,6 +47,8 @@ export const authOptions: NextAuthOptions = {
 			authorize: async (credentials) => {
 				const { email, password } =
 					await signInSchema.parseAsync(credentials);
+
+				console.log('credentials', email, password);
 
 				// const user = await signIn({ email, password });
 
