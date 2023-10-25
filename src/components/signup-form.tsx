@@ -2,8 +2,10 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Twitter } from 'lucide-react';
+import Link from 'next/link';
+import { useRef,useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
-import { useState, useRef } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -17,10 +19,8 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { type ISignUp, signUpSchema } from '@/validators/auth';
-import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
-import ReCAPTCHA from 'react-google-recaptcha';
+import { type ISignUp, signUpSchema } from '@/validators/auth';
 
 const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 	const refCaptcha = useRef<ReCAPTCHA>(null);
@@ -40,13 +40,17 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 
 	const onSubmit = (data: ISignUp) => {
 		setIsSubmitting(true);
-		console.log(data);
+
 		setIsSubmitting(false);
 	};
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
+			<form
+				onSubmit={form.handleSubmit(onSubmit)}
+				className='space-y-4'
+				id='signup'
+				name='signup'>
 				<div className='flex flex-row justify-between space-x-4'>
 					<FormField
 						control={form.control}
@@ -57,8 +61,8 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 								<FormControl>
 									<Input
 										type='text'
-										id='firstName'
 										placeholder='Pulse'
+										autoComplete='given-name'
 										{...field}
 									/>
 								</FormControl>
@@ -75,8 +79,8 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 								<FormControl>
 									<Input
 										type='text'
-										id='lastName'
 										placeholder='Connect'
+										autoComplete='family-name'
 										{...field}
 									/>
 								</FormControl>
@@ -94,8 +98,8 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormControl>
 								<Input
 									type='text'
-									id='username'
 									placeholder='PulseConnect'
+									autoComplete='username'
 									{...field}
 								/>
 							</FormControl>
@@ -112,8 +116,8 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormControl>
 								<Input
 									type='email'
-									id='email'
 									placeholder='user@pulseconnect.com'
+									autoComplete='email'
 									{...field}
 								/>
 							</FormControl>
@@ -130,8 +134,8 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormControl>
 								<Input
 									type='password'
-									id='password'
 									placeholder='********'
+									autoComplete='new-password'
 									{...field}
 								/>
 							</FormControl>
@@ -148,8 +152,8 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormControl>
 								<Input
 									type='password'
-									id='confirmPassword'
 									placeholder='********'
+									autoComplete='new-password'
 									{...field}
 								/>
 							</FormControl>
@@ -165,7 +169,7 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormItem className='flex flex-row space-x-3 space-y-0'>
 								<FormControl>
 									<Checkbox
-										id='remember'
+										name='remember'
 										checked={field.value}
 										onCheckedChange={field.onChange}
 									/>
@@ -201,7 +205,7 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 				<Separator />
 				<Button type='button' variant='outline' className='w-full'>
 					<Twitter className='mr-2 h-4 w-4' />
-					Sign in with Twitter
+					Continue with Twitter
 				</Button>
 				<div className='flex flex-row space-x-4'></div>
 			</form>

@@ -2,10 +2,14 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Twitter } from 'lucide-react';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { signIn } from 'next-auth/react';
+import { useEffect, useRef,useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
-import { useState, useEffect, useRef } from 'react';
 
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
 	Form,
@@ -17,16 +21,13 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { type ISignIn, signInSchema } from '@/validators/auth';
-import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
-import ReCAPTCHA from 'react-google-recaptcha';
-
 import {
 	readFromLocalStorage,
-	writeOnLocalStorage,
 	removeFromLocalStorage,
+	writeOnLocalStorage,
 } from '@/utils/local-storage';
+import { type ISignIn, signInSchema } from '@/validators/auth';
 
 type StoredData = {
 	email: string;
@@ -56,7 +57,9 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 		form.setValue('remember', storedData?.remember ?? false);
 	}, [form]);
 
-	const onSubmit = (data: ISignIn) => {
+	const onSubmit = async (data: ISignIn) => {
+		setIsSubmitting(true);
+
 		if (data.remember) {
 			writeOnLocalStorage<StoredData>({
 				key: 'remember',
@@ -70,14 +73,18 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 			removeFromLocalStorage({ key: 'remember' });
 		}
 
-		setIsSubmitting(true);
-		console.log(data);
-		setIsSubmitting(false);
+		const response = await signIn('credentials', {
+			email: data.email,
+			password: data.password,
+			redirect: true,
+		});
+
+		redirect(ROUTES.HOME);
 	};
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
+			<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4' id='signin' name='signin'>
 				<FormField
 					control={form.control}
 					name='email'
@@ -87,8 +94,8 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormControl>
 								<Input
 									type='email'
-									id='email'
 									placeholder='user@pulseconnect.com'
+									autoComplete='email'
 									{...field}
 								/>
 							</FormControl>
@@ -105,8 +112,8 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormControl>
 								<Input
 									type='password'
-									id='password'
 									placeholder='********'
+									autoComplete='current-password'
 									{...field}
 								/>
 							</FormControl>
@@ -122,7 +129,7 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormItem className='flex flex-row space-x-3 space-y-0'>
 								<FormControl>
 									<Checkbox
-										id='remember'
+										name='remember'
 										checked={field.value}
 										onCheckedChange={field.onChange}
 									/>
@@ -156,9 +163,16 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 					)}
 				</Button>
 				<Separator />
+				<Link
+					href={ROUTES.AUTH.SIGNUP}
+					className={`w-full ${buttonVariants({
+						variant: 'secondary',
+					})}`}>
+					Create an account
+				</Link>
 				<Button type='button' variant='outline' className='w-full'>
 					<Twitter className='mr-2 h-4 w-4' />
-					Sign in with Twitter
+					Continue with Twitter
 				</Button>
 			</form>
 		</Form>
