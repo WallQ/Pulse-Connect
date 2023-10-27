@@ -16,3 +16,9 @@ export type CookieType = {
 	password: string;
 	remember: boolean;
 };
+
+export type LocalStorageProps = {
+ email: string;
+ password: string;
+ remember: string;
+};
