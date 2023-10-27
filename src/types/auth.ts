@@ -20,5 +20,5 @@ export type CookieType = {
 export type LocalStorageProps = {
  email: string;
  password: string;
- remember: string;
+ remember: boolean;
 };
