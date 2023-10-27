@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { type NextPage } from 'next/types';
 
-import SignUpForm from '@/components/signup-form';
+import SignUpForm from '@/components/forms/signup-form';
 import {
 	Card,
 	CardContent,
@@ -11,11 +11,7 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 
-type SignUpProps = {
-	//
-};
-
-const SignUpPage: NextPage<SignUpProps> = (): React.ReactNode => {
+const SignUpPage: NextPage = (): React.ReactNode => {
 	return (
 		<div className='flex flex-1 flex-col items-center justify-center align-middle'>
 			<Card className='w-3/4'>

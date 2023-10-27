@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import { type NextPage } from 'next/types';
 
 // import { redirect } from 'next/navigation';
-import { ROUTES } from '@/constants/routes';
+import { ROUTES } from '@/routes';
 // import { getServerAuthSession } from '@/server/auth';
 
-export default function HomePage() {
+const HomePage: NextPage = (): React.ReactNode => {
 	// const session = await getServerAuthSession();
 
 	// if (!session) {
@@ -22,4 +23,6 @@ export default function HomePage() {
 			</Link>
 		</main>
 	);
-}
+};
+
+export default HomePage;

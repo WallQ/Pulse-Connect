@@ -5,7 +5,10 @@ import {
 } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-import { ROUTES } from '@/constants/routes';
+import { ROUTES } from '@/routes';
+import { signIn } from '@/services/authAPI';
+import { type APIResponse, APIStatus, HTTPStatusCode } from '@/types/api';
+import { type User } from '@/types/user';
 import { signInSchema } from '@/validators/auth';
 
 declare module 'next-auth' {
@@ -15,6 +18,7 @@ declare module 'next-auth' {
 			username: string;
 			firstName: string;
 			lastName: string;
+			image: string;
 		} & DefaultSession['user'];
 	}
 
@@ -24,13 +28,13 @@ declare module 'next-auth' {
 		email: string;
 		firstName: string;
 		lastName: string;
+		image: string;
 	}
 }
 
 export const authOptions: NextAuthOptions = {
 	providers: [
 		CredentialsProvider({
-			type: 'credentials',
 			name: 'Credentials',
 			credentials: {
 				email: {
@@ -50,24 +54,30 @@ export const authOptions: NextAuthOptions = {
 
 				console.log('credentials', email, password);
 
-				// const user = await signIn({ email, password });
-
-				// if (!user) return null;
-
-				// return {
-				// 	id: user.id,
-				// 	username: user.username,
-				// 	email: user.email,
-				// 	firstName: user.firstName,
-				// 	lastName: user.lastName,
-				// };
 				return {
-					id: '12345',
+					id: '1',
 					username: 'Pulse Connect',
-					email: 'user@pulseconnect.com',
+					email: 'admin@pulseconnect.com',
 					firstName: 'Pulse',
 					lastName: 'Connect',
+					image: 'https://github.com/wallq.png',
 				};
+
+				// const response = await signIn({
+				// 	email,
+				// 	password,
+				// });
+
+				// const user = response?.data ? JSON.parse(response.data) as User : null;
+
+				// return {
+				// 	id: user.data?.id,
+				// 	username: user.data?.username,
+				// 	email: user.data?.email,
+				// 	firstName: user.data?.firstName,
+				// 	lastName: user.data?.lastName,
+				// 	image: user.data?.image,
+				// };
 			},
 		}),
 	],

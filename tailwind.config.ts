@@ -70,6 +70,13 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 			},
+			maxWidth: {
+				'8xl': '88rem',
+				'9xl': '96rem',
+				'10xl': '104rem',
+				'11xl': '112rem',
+				'12xl': '120rem',
+			},
 		},
 	},
 	plugins: [

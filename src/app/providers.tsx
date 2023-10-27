@@ -1,28 +1,26 @@
-'use client';
+import { cookies } from 'next/headers';
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { SessionProvider } from 'next-auth/react';
-import { useState } from 'react';
+import { ClientCookiesProvider } from '@/providers/cookies-provider';
+import QueryProvider from '@/providers/query-provider';
+import { SessionProvider } from '@/providers/session-provider';
+import ThemeProvider from '@/providers/theme-provider';
 
-export default function Providers({ children }: { children: React.ReactNode }) {
-	const [queryClient] = useState(
-		() =>
-			new QueryClient({
-				defaultOptions: {
-					queries: {
-						staleTime: 60 * 1000,
-					},
-				},
-			}),
-	);
+type ProvidersProps = {
+	children: React.ReactNode;
+};
 
+const Providers: React.FunctionComponent<ProvidersProps> = ({
+	children,
+}): React.ReactNode => {
 	return (
-		<SessionProvider>
-			<QueryClientProvider client={queryClient}>
-				{children}
-				<ReactQueryDevtools initialIsOpen={false} />
-			</QueryClientProvider>
-		</SessionProvider>
+		<ClientCookiesProvider value={cookies().getAll()}>
+			<SessionProvider>
+				<QueryProvider>
+					<ThemeProvider>{children}</ThemeProvider>
+				</QueryProvider>
+			</SessionProvider>
+		</ClientCookiesProvider>
 	);
-}
+};
+
+export default Providers;

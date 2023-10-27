@@ -3,7 +3,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Twitter } from 'lucide-react';
 import Link from 'next/link';
-import { useRef,useState } from 'react';
+import { signUp } from 'next-auth/react';
+import { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
@@ -19,12 +20,15 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { ROUTES } from '@/constants/routes';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { ROUTES } from '@/routes';
+import { type LocalStorageProps } from '@/types/auth';
 import { type ISignUp, signUpSchema } from '@/validators/auth';
 
 const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+	const { setItem } = useLocalStorage<LocalStorageProps>('remember');
 
 	const form = useForm<ISignUp>({
 		resolver: zodResolver(signUpSchema),
@@ -40,8 +44,23 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 
 	const onSubmit = (data: ISignUp) => {
 		setIsSubmitting(true);
-		console.log(data);
-		setIsSubmitting(false);
+
+		if (data.remember)
+			setItem({
+				email: data.email,
+				password: data.password,
+				remember: data.remember,
+			});
+
+		console.log('Form data: ' + JSON.stringify(data));
+
+		// const response = await signUp('credentials', {
+		// 	email: data.email,
+		// 	password: data.password,
+		// 	callbackUrl: ROUTES.HOME,
+		// });
+
+		// console.log('Response: ' + JSON.stringify(response));
 	};
 
 	return (

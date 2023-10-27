@@ -3,11 +3,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Twitter } from 'lucide-react';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 import { signIn } from 'next-auth/react';
-import { useEffect, useRef,useState } from 'react';
+import { useCookies } from 'next-client-cookies';
+import { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { useForm } from 'react-hook-form';
+import { type SubmitHandler, useForm } from 'react-hook-form';
 
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -21,23 +21,15 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { ROUTES } from '@/constants/routes';
-import {
-	readFromLocalStorage,
-	removeFromLocalStorage,
-	writeOnLocalStorage,
-} from '@/utils/local-storage';
+import { ROUTES } from '@/routes';
+import { type CookieType } from '@/types/auth';
+import { decrypt, encrypt } from '@/utils/cryptography';
 import { type ISignIn, signInSchema } from '@/validators/auth';
 
-type StoredData = {
-	email: string;
-	password: string;
-	remember: boolean;
-};
-
 const SignInForm: React.FunctionComponent = (): React.ReactNode => {
-	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+	const refCaptcha = useRef<ReCAPTCHA>(null);
+	const cookies = useCookies();
 
 	const form = useForm<ISignIn>({
 		resolver: zodResolver(signInSchema),
@@ -49,45 +41,43 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 	});
 
 	useEffect(() => {
-		const storedData = readFromLocalStorage<StoredData>({
-			key: 'remember',
-		});
+		const storedData = cookies.get('remember') as CookieType | undefined;
 		form.setValue('email', storedData?.email ?? '');
-		form.setValue('password', storedData?.password ?? '');
+		const password = decrypt(storedData?.password);
+		form.setValue('password', password ?? '');
 		form.setValue('remember', storedData?.remember ?? false);
-	}, [form]);
+	}, [cookies, form]);
 
-	const onSubmit = async (data: ISignIn) => {
+	const onSubmit: SubmitHandler<ISignIn> = async (data: ISignIn) => {
 		setIsSubmitting(true);
 
-		if (data.remember) {
-			writeOnLocalStorage<StoredData>({
-				key: 'remember',
-				data: {
-					email: data.email,
-					password: data.password,
-					remember: data.remember,
-				},
-			});
-		} else {
-			removeFromLocalStorage({ key: 'remember' });
-		}
+		const { email, password, remember } = data;
+
+		const hashedPassword = encrypt(password);
+
+		if (!remember) cookies.remove('remember');
+		else
+			cookies.set(
+				'remember',
+				JSON.stringify({ email, password: hashedPassword, remember }),
+			);
 
 		const response = await signIn('credentials', {
-			email: data.email,
-			password: data.password,
-			redirect: true,
+			email,
+			password,
+			callbackUrl: ROUTES.HOME,
 		});
 
-		if (response?.error) {
-			setIsSubmitting(false);
-			redirect(ROUTES.HOME);
-		}
+		form.reset();
 	};
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4' id='signin' name='signin'>
+			<form
+				onSubmit={form.handleSubmit(onSubmit)}
+				className='space-y-4'
+				id='signin'
+				name='signin'>
 				<FormField
 					control={form.control}
 					name='email'
