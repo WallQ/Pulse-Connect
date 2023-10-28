@@ -1,24 +1,9 @@
 'use client';
 
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
+import { type ThemeProviderProps as NextThemeProviderProps } from 'next-themes/dist/types';
 
-type ValueObject = Record<string, string>;
-
-type ThemeProviderProps = {
-	children: React.ReactNode;
-	themes?: string[];
-	forcedTheme?: string;
-	enableSystem?: boolean;
-	disableTransitionOnChange?: boolean;
-	enableColorScheme?: boolean;
-	storageKey?: string;
-	defaultTheme?: string;
-	attribute?: string;
-	value?: ValueObject;
-	nonce?: string;
-};
-
-const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({
+const ThemeProvider: React.FunctionComponent<NextThemeProviderProps> = ({
 	children,
 	...props
 }): React.ReactNode => {

@@ -24,7 +24,7 @@
 		"axios": "^1.5.1",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
-		"crypto": "^1.0.1",
+		"cryptr": "^6.3.0",
 		"framer-motion": "^10.16.4",
 		"lucide-react": "^0.288.0",
 		"million": "^2.6.4",

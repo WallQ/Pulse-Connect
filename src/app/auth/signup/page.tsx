@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { type NextPage } from 'next/types';
 
-import SignUpForm from '@/components/forms/signup-form';
+import SignUpForm from '@/components/Forms/signup-form';
 import {
 	Card,
 	CardContent,
@@ -25,7 +25,7 @@ const SignUpPage: NextPage = (): React.ReactNode => {
 					<SignUpForm />
 				</CardContent>
 				<CardFooter>
-					<p className='text-muted-foreground'>
+					<p className='text-sm text-muted-foreground'>
 						Ao continuar, você concorda com os nossos{' '}
 						<Link href='#' className='underline'>
 							Termos de Serviço

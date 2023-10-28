@@ -7,7 +7,7 @@ import { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
 	Form,
@@ -25,8 +25,8 @@ import { type LocalStorageProps } from '@/types/auth';
 import { type ISignUp, signUpSchema } from '@/validators/auth';
 
 const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
-	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const { setItem } = useLocalStorage<LocalStorageProps>('remember');
 
 	const form = useForm<ISignUp>({
@@ -197,8 +197,10 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 						)}
 					/>
 					<Link
-						href={ROUTES.AUTH.SIGNIN}
-						className='text-sm font-medium leading-none text-primary hover:text-primary/90'>
+						href={ROUTES.AUTH.FORGOT_PASSWORD}
+						className={`${buttonVariants({
+							variant: 'link',
+						})}`}>
 						Already have an account?
 					</Link>
 				</div>
@@ -225,7 +227,6 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 					<Twitter className='mr-2 h-4 w-4' />
 					Continue with Twitter
 				</Button>
-				<div className='flex flex-row space-x-4'></div>
 			</form>
 		</Form>
 	);

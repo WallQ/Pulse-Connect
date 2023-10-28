@@ -42,10 +42,14 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 
 	useEffect(() => {
 		const storedData = cookies.get('remember') as CookieType | undefined;
-		form.setValue('email', storedData?.email ?? '');
-		const password = decrypt(storedData?.password);
-		form.setValue('password', password ?? '');
-		form.setValue('remember', storedData?.remember ?? false);
+		if(!storedData) return;
+		const password = decrypt(storedData.password);
+		if(!password) return;
+		console.log(storedData);
+		console.log(password);
+		form.setValue('email', storedData.email);
+		form.setValue('password', password);
+		form.setValue('remember', storedData.remember);
 	}, [cookies, form]);
 
 	const onSubmit: SubmitHandler<ISignIn> = async (data: ISignIn) => {
@@ -133,7 +137,9 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 					/>
 					<Link
 						href={ROUTES.AUTH.FORGOT_PASSWORD}
-						className='text-sm font-medium leading-none text-primary hover:text-primary/90'>
+						className={`${buttonVariants({
+							variant: 'link',
+						})}`}>
 						Forgot your password?
 					</Link>
 				</div>
