@@ -6,9 +6,9 @@ import {
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 import { ROUTES } from '@/routes';
-import { signIn } from '@/services/auth-api';
-import { type APIResponse, APIStatus, HTTPStatusCode } from '@/types/api';
-import { type User } from '@/types/user';
+// import { signIn } from '@/services/auth-api';
+// import { type APIResponse, APIStatus, HTTPStatusCode } from '@/types/api';
+// import { type User } from '@/types/user';
 import { signInSchema } from '@/validators/auth';
 
 declare module 'next-auth' {

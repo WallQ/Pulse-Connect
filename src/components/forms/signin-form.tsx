@@ -42,9 +42,9 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 
 	useEffect(() => {
 		const storedData = cookies.get('remember') as CookieType | undefined;
-		if(!storedData) return;
+		if (!storedData) return;
 		const password = decrypt(storedData.password);
-		if(!password) return;
+		if (!password) return;
 		console.log(storedData);
 		console.log(password);
 		form.setValue('email', storedData.email);
@@ -71,6 +71,8 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 			password,
 			callbackUrl: ROUTES.HOME,
 		});
+
+		console.log(response);
 
 		form.reset();
 	};
