@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { type NextPage } from 'next/types';
 
-import SignUpForm from '@/components/Forms/signin-form';
+import SignUpForm from '@/components/SignInForm/SignInForm';
 import {
 	Card,
 	CardContent,
