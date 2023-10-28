@@ -110,6 +110,7 @@ const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 	return (
 		<html lang='en'>
 			<body
+				suppressHydrationWarning={true}
 				className={`font-sans ${inter.variable} flex w-full flex-col items-start justify-start align-middle`}>
 				<Providers>
 					{children}
