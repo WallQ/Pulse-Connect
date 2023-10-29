@@ -6,6 +6,8 @@ import {
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 import { ROUTES } from '@/routes';
+import { mockSignIn } from '@/services/auth-api';
+import { type MockUser } from '@/types/user';
 // import { signIn } from '@/services/auth-api';
 // import { type APIResponse, APIStatus, HTTPStatusCode } from '@/types/api';
 // import { type User } from '@/types/user';
@@ -14,21 +16,32 @@ import { signInSchema } from '@/validators/auth';
 declare module 'next-auth' {
 	interface Session extends DefaultSession {
 		user: {
-			id: string;
+			createdAt: string;
 			username: string;
+			email: string;
+			password: string;
 			firstName: string;
 			lastName: string;
 			image: string;
+			role: string;
+			bio: string;
+			country: string;
+			id: number;
 		} & DefaultSession['user'];
 	}
 
 	interface User {
-		id: string;
+		createdAt: string;
 		username: string;
 		email: string;
+		password: string;
 		firstName: string;
 		lastName: string;
 		image: string;
+		role: string;
+		bio: string;
+		country: string;
+		id: number;
 	}
 }
 
@@ -49,35 +62,32 @@ export const authOptions: NextAuthOptions = {
 				},
 			},
 			authorize: async (credentials) => {
+				if (!credentials) return null;
+
 				const { email, password } =
 					await signInSchema.parseAsync(credentials);
 
-				console.log('credentials', email, password);
+				console.log('Email', email, ' - ' + 'Password', password);
 
-				return {
-					id: '1',
-					username: 'Pulse Connect',
-					email: 'admin@pulseconnect.com',
-					firstName: 'Pulse',
-					lastName: 'Connect',
-					image: 'https://github.com/wallq.png',
-				};
+				const user = await mockSignIn();
 
-				// const response = await signIn({
-				// 	email,
-				// 	password,
-				// });
+				if (!user) return null;
 
-				// const user = response?.data ? JSON.parse(response.data) as User : null;
-
-				// return {
-				// 	id: user.data?.id,
-				// 	username: user.data?.username,
-				// 	email: user.data?.email,
-				// 	firstName: user.data?.firstName,
-				// 	lastName: user.data?.lastName,
-				// 	image: user.data?.image,
-				// };
+				if (typeof user === 'string') {
+					return null;
+				} else {
+					return {
+						id: user.id,
+						username: user.username,
+						email: user.email,
+						firstName: user.firstName,
+						lastName: user.lastName,
+						bio: user.bio,
+						country: user.country,
+						image: user.image,
+						role: user.role,
+					} as MockUser;
+				}
 			},
 		}),
 	],

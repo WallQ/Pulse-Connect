@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Twitter } from 'lucide-react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
-import { useCookies } from 'next-client-cookies';
 import { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { type SubmitHandler, useForm } from 'react-hook-form';
@@ -21,15 +20,17 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { ROUTES } from '@/routes';
-import { type CookieType } from '@/types/auth';
+import { type LocalStorageProps } from '@/types/auth';
 import { decrypt, encrypt } from '@/utils/cryptography';
 import { type ISignIn, signInSchema } from '@/validators/auth';
 
 const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 	const refCaptcha = useRef<ReCAPTCHA>(null);
-	const cookies = useCookies();
+	const { getItem, setItem, removeItem } =
+		useLocalStorage<LocalStorageProps>('remember');
 
 	const form = useForm<ISignIn>({
 		resolver: zodResolver(signInSchema),
@@ -41,16 +42,14 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 	});
 
 	useEffect(() => {
-		const storedData = cookies.get('remember') as CookieType | undefined;
+		const storedData = getItem();
 		if (!storedData) return;
 		const password = decrypt(storedData.password);
 		if (!password) return;
-		console.log(storedData);
-		console.log(password);
 		form.setValue('email', storedData.email);
 		form.setValue('password', password);
 		form.setValue('remember', storedData.remember);
-	}, [cookies, form]);
+	}, [form, getItem]);
 
 	const onSubmit: SubmitHandler<ISignIn> = async (data: ISignIn) => {
 		setIsSubmitting(true);
@@ -59,12 +58,9 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 
 		const hashedPassword = encrypt(password);
 
-		if (!remember) cookies.remove('remember');
-		else
-			cookies.set(
-				'remember',
-				JSON.stringify({ email, password: hashedPassword, remember }),
-			);
+		if (!remember) removeItem();
+		else if (hashedPassword)
+			setItem({ email, password: hashedPassword, remember });
 
 		const response = await signIn('credentials', {
 			email,

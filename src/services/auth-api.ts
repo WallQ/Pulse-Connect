@@ -90,3 +90,39 @@ export const signOut = async () => {
 // 		throw new Error('An unxpected error has occurred.');
 // 	}
 // };
+
+type SignInMockResponse = {
+	createdAt: string;
+	username: string;
+	email: string;
+	password: string;
+	firstName: string;
+	lastName: string;
+	image: string;
+	role: string;
+	bio: string;
+	country: string;
+	id: number;
+};
+
+export const mockSignIn = async (): Promise<string | SignInMockResponse> => {
+	try {
+		const { data } = await authApi.get<SignInMockResponse>(
+			'https://653affda2e42fd0d54d49ddc.mockapi.io/api/v1/users/1',
+			{
+				headers: {
+					Accept: 'application/json',
+				},
+			},
+		);
+		return data;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			console.error('Error: ', error.message);
+			return error.message;
+		} else {
+			console.error('Unexpected error: ', error);
+			return 'An unexpected error has occurred!';
+		}
+	}
+};

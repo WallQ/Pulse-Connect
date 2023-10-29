@@ -1,6 +1,7 @@
 import { type Metadata } from 'next/types';
 import { Fragment } from 'react';
 
+import { Chatbar } from '@/components/Chatbar';
 import { Navbar } from '@/components/Navbar/';
 import { Sidebar } from '@/components/Sidebar/';
 
@@ -20,9 +21,10 @@ const FeedLayout: React.FunctionComponent<FeedLayoutProps> = ({
 	return (
 		<Fragment>
 			<Navbar />
-			<div className='flex flex-row items-start justify-between align-middle'>
+			<div className='flex flex-row justify-between'>
 				<Sidebar />
 				{children}
+				<Chatbar />
 			</div>
 		</Fragment>
 	);

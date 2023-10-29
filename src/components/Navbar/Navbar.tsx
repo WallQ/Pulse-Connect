@@ -1,20 +1,15 @@
-'use client';
-
 import {
-	Check,
 	ChevronDown,
 	Contrast,
 	HelpCircle,
 	Languages,
-	Moon,
+	LogOut,
 	Search,
 	Settings,
-	Sun,
 	User,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -34,25 +29,24 @@ import {
 import { Input } from '@/components/ui/input';
 import { ROUTES } from '@/routes';
 
-import SignOutButton from '../signout-button';
+import DarkThemeButton from '../ThemeChangerButton/DarkThemeButton';
+import LightThemeButton from '../ThemeChangerButton/LightThemeButton';
 
 const Navbar: React.FunctionComponent = (): React.ReactNode => {
-	const { setTheme, theme } = useTheme();
-
 	return (
-		<header className='mx-auto flex w-full flex-row items-center justify-between border-b border-input bg-background py-8 align-middle md:px-6 lg:px-8'>
+		<header className='flex w-full flex-row items-center justify-between border-b border-input bg-background p-8 align-middle'>
 			<Link href='/'>
 				<Image
 					src='/logo/Logo Transparent Text Black.svg'
 					alt='Logo'
-					width={128}
-					height={128}
+					width={32}
+					height={32}
 					priority={true}
-					className='h-8 w-auto'
+					className='dark:nightMode h-8 w-full'
 				/>
 			</Link>
-			<div className='flex w-full max-w-sm flex-row items-center space-x-2'>
-				<Input type='text' placeholder='Search' />
+			<div className='flex w-full max-w-xl flex-row items-center justify-between space-x-2 align-middle'>
+				<Input type='text' placeholder='Search' name='search' />
 				<Button type='submit' size='icon'>
 					<Search className='h-4 w-4' />
 				</Button>
@@ -82,7 +76,7 @@ const Navbar: React.FunctionComponent = (): React.ReactNode => {
 						<DropdownMenuItem>
 							<Link
 								href={ROUTES.PROFILE}
-								className='inline-flex justify-center align-middle'>
+								className='flex flex-row justify-center align-middle'>
 								<User className='mr-2 h-4 w-4' />
 								<span>Profile</span>
 							</Link>
@@ -90,7 +84,7 @@ const Navbar: React.FunctionComponent = (): React.ReactNode => {
 						<DropdownMenuItem>
 							<Link
 								href={ROUTES.SETTINGS}
-								className='inline-flex justify-center align-middle'>
+								className='flex flex-row justify-center align-middle'>
 								<Settings className='mr-2 h-4 w-4' />
 								<span>Settings</span>
 							</Link>
@@ -105,23 +99,11 @@ const Navbar: React.FunctionComponent = (): React.ReactNode => {
 							</DropdownMenuSubTrigger>
 							<DropdownMenuPortal>
 								<DropdownMenuSubContent>
-									<DropdownMenuItem
-										className='cursor-pointer'
-										onClick={() => setTheme('light')}>
-										<Sun className='mr-2 h-4 w-4' />
-										<span className='w-full'>Claro</span>
-										{theme === 'light' && (
-											<Check className=' h-4 w-4' />
-										)}
+									<DropdownMenuItem className='cursor-pointer'>
+										<LightThemeButton />
 									</DropdownMenuItem>
-									<DropdownMenuItem
-										className='cursor-pointer'
-										onClick={() => setTheme('dark')}>
-										<Moon className='mr-2 h-4 w-4' />
-										<span className='w-full'>Escuro</span>
-										{theme === 'dark' && (
-											<Check className=' h-4 w-4' />
-										)}
+									<DropdownMenuItem className='cursor-pointer'>
+										<DarkThemeButton />
 									</DropdownMenuItem>
 								</DropdownMenuSubContent>
 							</DropdownMenuPortal>
@@ -149,7 +131,12 @@ const Navbar: React.FunctionComponent = (): React.ReactNode => {
 						<span>Help</span>
 					</DropdownMenuItem>
 					<DropdownMenuItem className='cursor-pointer'>
-						<SignOutButton />
+						<Link
+							href={ROUTES.AUTH.SIGNOUT}
+							className='flex w-full flex-row items-center justify-start align-middle'>
+							<LogOut className='mr-2 h-4 w-4' />
+							<span>Sign Out</span>
+						</Link>
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>

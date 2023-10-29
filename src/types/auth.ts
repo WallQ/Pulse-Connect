@@ -11,13 +11,13 @@ export type SignUpProps = {
 	password: string;
 };
 
-export type CookieType = {
+export type LocalStorageProps = {
 	email: string;
 	password: string;
 	remember: boolean;
 };
 
-export type LocalStorageProps = {
+export type CookieType = {
 	email: string;
 	password: string;
 	remember: boolean;

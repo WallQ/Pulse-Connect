@@ -47,13 +47,16 @@
 		--input: 12 6.5% 15.1%;
 		--ring: 20.5 90.2% 48.2%;
 	}
-}
 
-@layer base {
 	* {
 		@apply border-border;
 	}
+
 	body {
 		@apply bg-background text-foreground;
+	}
+
+	.nightMode {
+		filter: invert(1) hue-rotate(180deg);
 	}
 }

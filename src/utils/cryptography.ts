@@ -1,8 +1,8 @@
 import Cryptr from 'cryptr';
 
 const cryptr = new Cryptr(process.env.NEXT_PUBLIC_ENCRYPTION_KEY ?? '', {
-	saltLength: 12,
-	encoding: 'base64',
+	saltLength: 0,
+	encoding: 'hex',
 });
 
 export const encrypt = (text: string): string | undefined => {

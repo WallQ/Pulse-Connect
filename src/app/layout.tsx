@@ -1,16 +1,11 @@
 import '@/styles/globals.css';
 
+import { GeistMono, GeistSans } from 'geist/font';
 import { type Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/toaster';
 
 import Providers from './providers';
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-sans',
-});
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect',
@@ -111,7 +106,7 @@ const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 		<html lang='en'>
 			<body
 				suppressHydrationWarning={true}
-				className={`font-sans ${inter.variable} flex w-full flex-col items-start justify-start align-middle`}>
+				className={`font-sans ${GeistSans.variable} ${GeistMono.variable} flex h-full w-full flex-col`}>
 				<Providers>
 					{children}
 					<Toaster />

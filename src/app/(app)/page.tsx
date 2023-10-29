@@ -1,8 +1,6 @@
-import Link from 'next/link';
 import { type NextPage } from 'next/types';
 
 // import { redirect } from 'next/navigation';
-import { ROUTES } from '@/routes';
 // import { getServerAuthSession } from '@/server/auth';
 
 const HomePage: NextPage = (): React.ReactNode => {
@@ -13,14 +11,8 @@ const HomePage: NextPage = (): React.ReactNode => {
 	// }
 
 	return (
-		<main>
-			<h1>Hello World!</h1>
-			<Link href={ROUTES.AUTH.SIGNIN}>
-				<span className='text-base text-black'>Sign In</span>
-			</Link>
-			<Link href={ROUTES.AUTH.SIGNUP}>
-				<span className='text-base text-black'>Sign Up</span>
-			</Link>
+		<main className='flex max-w-5xl flex-1 flex-col items-start justify-start border-x border-input p-16 align-middle'>
+			<h1 className='text-lg font-semibold'>Homepage</h1>
 		</main>
 	);
 };

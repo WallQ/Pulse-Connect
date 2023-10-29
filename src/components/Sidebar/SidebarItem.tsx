@@ -20,7 +20,11 @@ const SidebarItem: React.FunctionComponent<SidebarItemProps> = ({
 }): React.ReactNode => {
 	const pathname = usePathname();
 	return (
-		<Button variant='link' size='icon' asChild className='text-inherit'>
+		<Button
+			variant='link'
+			size='icon'
+			asChild
+			className='cursor-pointer text-inherit'>
 			<Link
 				href={href}
 				className='flex flex-col items-center justify-between space-y-2 align-middle'>
