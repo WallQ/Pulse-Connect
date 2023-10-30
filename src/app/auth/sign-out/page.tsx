@@ -9,7 +9,7 @@ const SignOutPage: NextPage = (): React.ReactNode => {
 	try {
 		signOut({ redirect: true, callbackUrl: ROUTES.AUTH.SIGNIN })
 			.then(() => {
-                console.log('Sign out successful');
+				console.log('User has signed out successfully!');
 			})
 			.catch((error) => {
 				console.error(error);

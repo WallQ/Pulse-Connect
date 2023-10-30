@@ -208,6 +208,7 @@ const SignUpForm: React.FunctionComponent = (): React.ReactNode => {
 					sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}
 					ref={refCaptcha}
 					size='invisible'
+					hidden={true}
 				/>
 				<Button
 					type='submit'

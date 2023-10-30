@@ -14,7 +14,7 @@ const LightThemeButton: React.FunctionComponent = (): React.ReactNode => {
 				<Sun className='mr-2 h-4 w-4' />
 				<span className='w-full'>Light</span>
 			</div>
-			{theme === 'light' && <Check className='ml-2 h-4 w-4' />}
+			{theme === 'light' ? <Check className='ml-2 h-4 w-4' /> : null}
 		</div>
 	);
 };

@@ -42,35 +42,40 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 	});
 
 	useEffect(() => {
-		const storedData = getItem();
-		if (!storedData) return;
-		const password = decrypt(storedData.password);
-		if (!password) return;
-		form.setValue('email', storedData.email);
-		form.setValue('password', password);
-		form.setValue('remember', storedData.remember);
+		const fetchData = async () => {
+			const storedData = getItem();
+			if (!storedData) return;
+			const password = await decrypt(storedData.password);
+			if (!password) return;
+			form.setValue('email', storedData.email);
+			form.setValue('password', password);
+			form.setValue('remember', storedData.remember);
+		};
+		void fetchData();
 	}, [form, getItem]);
 
-	const onSubmit: SubmitHandler<ISignIn> = async (data: ISignIn) => {
+	const onSubmit: SubmitHandler<ISignIn> = async ({
+		email,
+		password,
+		remember,
+	}: ISignIn) => {
 		setIsSubmitting(true);
 
-		const { email, password, remember } = data;
-
-		const hashedPassword = encrypt(password);
-
 		if (!remember) removeItem();
-		else if (hashedPassword)
-			setItem({ email, password: hashedPassword, remember });
+		else {
+			const encryptedPassword = await encrypt(password);
+			if (!encryptedPassword) return;
+			setItem({ email, password: encryptedPassword, remember });
+		}
 
 		const response = await signIn('credentials', {
 			email,
 			password,
+			redirect: true,
 			callbackUrl: ROUTES.HOME,
 		});
 
 		console.log(response);
-
-		form.reset();
 	};
 
 	return (
@@ -124,7 +129,6 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 							<FormItem className='flex flex-row space-x-3 space-y-0'>
 								<FormControl>
 									<Checkbox
-										name='remember'
 										checked={field.value}
 										onCheckedChange={field.onChange}
 									/>
@@ -145,6 +149,7 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 					sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''}
 					ref={refCaptcha}
 					size='invisible'
+					hidden={true}
 				/>
 				<Button
 					type='submit'

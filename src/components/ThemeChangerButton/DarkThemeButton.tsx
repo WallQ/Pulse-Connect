@@ -14,7 +14,7 @@ const DarkThemeButton: React.FunctionComponent = (): React.ReactNode => {
 				<Moon className='mr-2 h-4 w-4' />
 				<span className='w-full'>Dark</span>
 			</div>
-			{theme === 'dark' && <Check className='ml-2 h-4 w-4' />}
+			{theme === 'dark' ? <Check className='ml-2 h-4 w-4' /> : null}
 		</div>
 	);
 };
