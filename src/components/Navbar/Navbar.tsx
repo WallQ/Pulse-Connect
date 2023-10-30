@@ -28,11 +28,19 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { ROUTES } from '@/routes';
+import { getServerAuthSession } from '@/server/auth';
+import { getInitials } from '@/utils/initials';
 
 import DarkThemeButton from '../ThemeChangerButton/DarkThemeButton';
 import LightThemeButton from '../ThemeChangerButton/LightThemeButton';
 
-const Navbar: React.FunctionComponent = (): React.ReactNode => {
+const Navbar: React.FunctionComponent = async () => {
+	const session = await getServerAuthSession();
+
+	if (!session) throw new Error('User not authenticated!');
+
+	const initials = getInitials(session.user.firstName, session.user.lastName);
+
 	return (
 		<header className='flex w-full flex-row items-center justify-between border-b border-input bg-background p-8 align-middle'>
 			<Link href='/'>
@@ -55,16 +63,19 @@ const Navbar: React.FunctionComponent = (): React.ReactNode => {
 				<DropdownMenuTrigger asChild>
 					<div className='flex cursor-pointer flex-row items-center justify-between space-x-2 whitespace-nowrap rounded-md p-1.5  align-middle ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'>
 						<Avatar>
-							<AvatarImage src='https://github.com/wallq.png' />
-							<AvatarFallback>CN</AvatarFallback>
+							<AvatarImage src={session.user.image} />
+							<AvatarFallback>{initials}</AvatarFallback>
 						</Avatar>
 						<div className='flex flex-col items-start justify-between align-middle'>
 							<span className='text-base font-medium'>
-								Pulse Connect
+								{session.user.firstName} {session.user.lastName}
 							</span>
-							<span className='text-xs font-normal text-muted-foreground'>
-								Online
-							</span>
+							<div className='flex flex-row items-center justify-between space-x-1 align-middle'>
+								<div className='h-3 w-3 rounded-full bg-emerald-500' />{' '}
+								<small className='text-xs font-normal text-muted-foreground'>
+									Online
+								</small>
+							</div>
 						</div>
 						<ChevronDown className='h-5 w-5' />
 					</div>

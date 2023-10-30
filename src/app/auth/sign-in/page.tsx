@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { type NextPage } from 'next/types';
 
 import SignUpForm from '@/components/Forms/SignInForm/SignInForm';
@@ -10,8 +11,16 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
+import { ROUTES } from '@/routes';
+import { getServerAuthSession } from '@/server/auth';
 
-const SignInPage: NextPage = (): React.ReactNode => {
+const SignInPage: NextPage = async () => {
+	const session = await getServerAuthSession();
+
+	if (session) {
+		redirect(ROUTES.HOME);
+	}
+
 	return (
 		<div className='flex flex-1 flex-col items-center justify-center align-middle'>
 			<Card className='w-3/4'>

@@ -102,6 +102,8 @@ const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 }: {
 	children: React.ReactNode;
 }) => {
+	throw new Error('Whoops');
+
 	return (
 		<html lang='en'>
 			<body

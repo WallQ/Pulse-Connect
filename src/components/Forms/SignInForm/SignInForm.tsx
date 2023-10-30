@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2, Twitter } from 'lucide-react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -29,8 +30,11 @@ import { type ISignIn, signInSchema } from '@/validators/auth';
 const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 	const refCaptcha = useRef<ReCAPTCHA>(null);
+	const searchParams = useSearchParams();
 	const { getItem, setItem, removeItem } =
 		useLocalStorage<LocalStorageProps>('remember');
+
+	const callbackUrl = searchParams.get('callbackUrl') ?? ROUTES.HOME;
 
 	const form = useForm<ISignIn>({
 		resolver: zodResolver(signInSchema),
@@ -72,7 +76,7 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 			email,
 			password,
 			redirect: true,
-			callbackUrl: ROUTES.HOME,
+			callbackUrl: callbackUrl,
 		});
 
 		console.log(response);
