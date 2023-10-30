@@ -1,23 +1,46 @@
 'use client';
 
-import { useEffect } from 'react';
+import { AlertCircle, Link } from 'lucide-react';
 
-export default function Error({
-	error,
-	reset,
-}: {
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { ROUTES } from '@/routes';
+
+type GlobalErrorProps = {
 	error: Error & { digest?: string };
 	reset: () => void;
-}) {
-	useEffect(() => {
-		// Log the error to an error reporting service
-		console.error(error);
-	}, [error]);
+};
 
+const GlobalError: React.FunctionComponent<GlobalErrorProps> = ({
+	error,
+	reset,
+}): React.ReactNode => {
 	return (
-		<div>
-			<h2>Something went wrong!</h2>
-			<button onClick={() => reset()}>Try again</button>
+		<div className='flex flex-1 flex-col items-center justify-center align-middle'>
+			<Alert variant='destructive' className='w-3/4'>
+				<AlertCircle className='h-4 w-4' />
+				<AlertTitle>Error!</AlertTitle>
+				<AlertDescription>
+					{error.message || 'An unexpected error has occurred.'}
+				</AlertDescription>
+				<div className='mt-4 flex w-full flex-row gap-x-4'>
+					<Button
+						variant={'destructive'}
+						onClick={reset}
+						className='w-full'>
+						Try Again
+					</Button>
+					<Link
+						href={ROUTES.HOME}
+						className={`w-full ${buttonVariants({
+							variant: 'outline',
+						})}`}>
+						Go Back Home
+					</Link>
+				</div>
+			</Alert>
 		</div>
 	);
-}
+};
+
+export default GlobalError;

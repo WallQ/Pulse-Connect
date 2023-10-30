@@ -7,6 +7,8 @@ import { Toaster } from '@/components/ui/toaster';
 
 import Providers from './providers';
 
+const URL = process.env.NEXTAUTH_URL ?? '';
+
 export const metadata: Metadata = {
 	title: 'Pulse Connect',
 	description: 'This is an evaluation project of the LDS curricular unit.',
@@ -56,11 +58,11 @@ export const metadata: Metadata = {
 		title: 'Pulse Connect',
 		description:
 			'This is an evaluation project of the LDS curricular unit.',
-		url: 'https://pulse-connect-omega.vercel.app/',
+		url: URL,
 		siteName: 'Pulse Connect',
 		images: [
 			{
-				url: 'https://pulse-connect-omega.vercel.app/og-image.png',
+				url: `${URL}/og-image.png`,
 				width: 1200,
 				height: 630,
 				alt: 'Pulse Connect',
@@ -77,7 +79,7 @@ export const metadata: Metadata = {
 		creator: '@pulseconnect',
 		images: [
 			{
-				url: 'https://pulse-connect-omega.vercel.app/twitter-image.png',
+				url: `${URL}/twitter-image.png`,
 				width: 1200,
 				height: 630,
 				alt: 'Pulse Connect',
@@ -102,8 +104,6 @@ const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	throw new Error('Whoops');
-
 	return (
 		<html lang='en'>
 			<body
