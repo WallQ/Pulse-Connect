@@ -10,10 +10,12 @@ type MaintenancePageProps = {
 };
 
 const MaintenancePage: NextPage<MaintenancePageProps> = ({
-	targetDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+	targetDate,
 }): React.ReactNode => {
+	console.log(targetDate);
+	const targetDateTest = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30);
 	const { seconds, minutes, hours, days } = useTimer({
-		expiryTimestamp: targetDate,
+		expiryTimestamp: targetDateTest,
 		autoStart: true,
 		onExpire: () => redirect('/'),
 	});
