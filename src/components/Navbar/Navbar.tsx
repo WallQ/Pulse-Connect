@@ -11,6 +11,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 
+import ThemeButton from '@/components/ThemeButton/ThemeButton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -31,9 +32,6 @@ import { ROUTES } from '@/routes';
 import { getServerAuthSession } from '@/server/auth';
 import { getInitials } from '@/utils/initials';
 
-import DarkThemeButton from '../ThemeChangerButton/DarkThemeButton';
-import LightThemeButton from '../ThemeChangerButton/LightThemeButton';
-
 const Navbar: React.FunctionComponent = async () => {
 	const session = await getServerAuthSession();
 
@@ -42,7 +40,7 @@ const Navbar: React.FunctionComponent = async () => {
 	const initials = getInitials(session.user.firstName, session.user.lastName);
 
 	return (
-		<header className='flex w-full flex-row items-center justify-between border-b border-input bg-background p-8 align-middle'>
+		<header className='flex w-full flex-row items-center justify-between border-b border-input p-8'>
 			<Link href='/'>
 				<Image
 					src='/logo/Logo Transparent Text Black.svg'
@@ -53,10 +51,10 @@ const Navbar: React.FunctionComponent = async () => {
 					className='dark:nightMode h-8 w-full'
 				/>
 			</Link>
-			<div className='flex w-full max-w-xl flex-row items-center justify-between space-x-2 align-middle'>
+			<div className='flex w-full max-w-lg flex-row items-center justify-between space-x-2'>
 				<Input type='text' placeholder='Search' name='search' />
 				<Button type='submit' size='icon'>
-					<Search className='h-4 w-4' />
+					<Search className='h-5 w-5' />
 				</Button>
 			</div>
 			<DropdownMenu>
@@ -94,7 +92,7 @@ const Navbar: React.FunctionComponent = async () => {
 						</DropdownMenuItem>
 						<DropdownMenuItem>
 							<Link
-								href={ROUTES.SETTINGS}
+								href={ROUTES.SETTINGS.ROOT}
 								className='flex flex-row justify-center align-middle'>
 								<Settings className='mr-2 h-4 w-4' />
 								<span>Settings</span>
@@ -111,10 +109,25 @@ const Navbar: React.FunctionComponent = async () => {
 							<DropdownMenuPortal>
 								<DropdownMenuSubContent>
 									<DropdownMenuItem className='cursor-pointer'>
-										<LightThemeButton />
+										<ThemeButton
+											themeType='light'
+											title='Light'
+											icon='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN1biI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIvPjxwYXRoIGQ9Ik0xMiAydjIiLz48cGF0aCBkPSJNMTIgMjB2MiIvPjxwYXRoIGQ9Im00LjkzIDQuOTMgMS40MSAxLjQxIi8+PHBhdGggZD0ibTE3LjY2IDE3LjY2IDEuNDEgMS40MSIvPjxwYXRoIGQ9Ik0yIDEyaDIiLz48cGF0aCBkPSJNMjAgMTJoMiIvPjxwYXRoIGQ9Im02LjM0IDE3LjY2LTEuNDEgMS40MSIvPjxwYXRoIGQ9Im0xOS4wNyA0LjkzLTEuNDEgMS40MSIvPjwvc3ZnPg=='
+										/>
 									</DropdownMenuItem>
 									<DropdownMenuItem className='cursor-pointer'>
-										<DarkThemeButton />
+										<ThemeButton
+											themeType='dark'
+											title='Dark'
+											icon='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW1vb24iPjxwYXRoIGQ9Ik0xMiAzYTYgNiAwIDAgMCA5IDkgOSA5IDAgMSAxLTktOVoiLz48L3N2Zz4='
+										/>
+									</DropdownMenuItem>
+									<DropdownMenuItem className='cursor-pointer'>
+										<ThemeButton
+											themeType='system'
+											title='System'
+											icon='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN1bi1tb29uIj48cGF0aCBkPSJNMTIgOGEyLjgzIDIuODMgMCAwIDAgNCA0IDQgNCAwIDEgMS00LTQiLz48cGF0aCBkPSJNMTIgMnYyIi8+PHBhdGggZD0iTTEyIDIwdjIiLz48cGF0aCBkPSJtNC45IDQuOSAxLjQgMS40Ii8+PHBhdGggZD0ibTE3LjcgMTcuNyAxLjQgMS40Ii8+PHBhdGggZD0iTTIgMTJoMiIvPjxwYXRoIGQ9Ik0yMCAxMmgyIi8+PHBhdGggZD0ibTYuMyAxNy43LTEuNCAxLjQiLz48cGF0aCBkPSJtMTkuMSA0LjktMS40IDEuNCIvPjwvc3ZnPg=='
+										/>
 									</DropdownMenuItem>
 								</DropdownMenuSubContent>
 							</DropdownMenuPortal>

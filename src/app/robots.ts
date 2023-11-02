@@ -1,7 +1,6 @@
 import { type MetadataRoute } from 'next';
 
 const robots = (): MetadataRoute.Robots => {
-	const URL = process.env.NEXTAUTH_URL ?? '';
 
 	return {
 		rules: {
@@ -9,7 +8,7 @@ const robots = (): MetadataRoute.Robots => {
 			allow: '/',
 			disallow: '/private/',
 		},
-		sitemap: `${URL}/sitemap.xml`,
+		sitemap: 'https://pulse-connect-omega.vercel.app/sitemap.xml',
 	};
 };
 

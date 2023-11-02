@@ -20,6 +20,7 @@ const AuthLayout: React.FunctionComponent<AuthLayoutProps> = ({
 					alt='Logo'
 					width={512}
 					height={512}
+					loading='lazy'
 					className='h-1/2 w-1/2 object-contain'
 				/>
 			</div>

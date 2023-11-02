@@ -106,9 +106,8 @@ const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 }) => {
 	return (
 		<html lang='en'>
-			<body
-				suppressHydrationWarning={true}
-				className={`font-sans ${GeistSans.variable} ${GeistMono.variable} flex h-full w-full flex-col`}>
+			<body 
+				className={`font-sans h-screen ${GeistSans.variable} ${GeistMono.variable} flex w-full flex-col`}>
 				<Providers>
 					{children}
 					<Toaster />

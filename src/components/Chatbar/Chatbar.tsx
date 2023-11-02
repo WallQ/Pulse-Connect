@@ -12,7 +12,7 @@ import ChatItem from './ChatItem';
 
 const Chatbar: React.FunctionComponent = (): React.ReactNode => {
 	return (
-		<aside className='sticky flex w-96 flex-col items-center justify-start space-y-12 overflow-hidden border-l border-input bg-background p-8 align-middle duration-300'>
+		<aside className='sticky flex w-[20%] flex-col items-center justify-start space-y-12 overflow-hidden border-l border-input bg-background p-8 align-middle duration-300'>
 			<div className='flex w-full max-w-sm flex-row items-center justify-between space-x-2 align-middle'>
 				<Input type='text' placeholder='Search' name='search' />
 				<Button type='submit' size='icon'>
@@ -29,7 +29,7 @@ const Chatbar: React.FunctionComponent = (): React.ReactNode => {
 			</div>
 			<div className='flex flex-col items-center justify-between align-middle'>
 				<ScrollArea className='h-128'>
-					{Array.from({ length: 12 }).map((_, index) => (
+					{Array.from({ length: 24 }).map((_, index) => (
 						<Fragment key={`chat-${index}`}>
 							<Link href={`${ROUTES.MESSAGES}/${1}`}>
 								<ChatItem

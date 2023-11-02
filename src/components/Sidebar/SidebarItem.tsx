@@ -5,46 +5,38 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { Button } from '@/components/ui/button';
-
 type SidebarItemProps = {
-	title: string;
 	href: string;
+	title: string;
 	icon: string;
 };
 
 const SidebarItem: React.FunctionComponent<SidebarItemProps> = ({
-	title,
 	href,
+	title,
 	icon,
 }): React.ReactNode => {
 	const pathname = usePathname();
 	return (
-		<Button
-			variant='link'
-			size='icon'
-			asChild
-			className='cursor-pointer text-inherit'>
-			<Link
-				href={href}
-				className='flex flex-col items-center justify-between space-y-2 align-middle'>
-				<Image
-					src={icon}
-					alt='icon'
-					width={16}
-					height={16}
-					className='h-4 w-4 dark:invert'
-				/>
-				<span
-					className={clsx('text-xs font-normal', {
-						'underline decoration-primary decoration-solid decoration-2':
-							pathname === href,
-						'no-underline': pathname !== href,
-					})}>
-					{title}
-				</span>
-			</Link>
-		</Button>
+		<Link
+			href={href}
+			className='flex cursor-pointer flex-col items-center justify-between space-y-2 rounded-md align-middle underline-offset-4 ring-offset-background transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'>
+			<Image
+				src={icon}
+				alt='icon'
+				width={20}
+				height={20}
+				className='h-5 w-5 dark:invert'
+			/>
+			<span
+				className={clsx('text-xs font-normal', {
+					'underline decoration-primary decoration-solid decoration-2 underline-offset-4':
+						pathname === href,
+					'no-underline': pathname !== href,
+				})}>
+				{title}
+			</span>
+		</Link>
 	);
 };
 

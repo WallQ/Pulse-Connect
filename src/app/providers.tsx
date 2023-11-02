@@ -1,6 +1,6 @@
-import QueryProvider from '@/providers/query-provider';
-import { SessionProvider } from '@/providers/session-provider';
-import ThemeProvider from '@/providers/theme-provider';
+import QueryProvider from '@/components/Providers/QueryProvider';
+import { SessionProvider } from '@/components/Providers/SessionProvider';
+import ThemeProvider from '@/components/Providers/ThemeProvider';
 
 type ProvidersProps = {
 	children: React.ReactNode;
