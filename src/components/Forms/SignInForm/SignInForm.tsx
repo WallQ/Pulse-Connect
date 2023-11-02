@@ -125,7 +125,7 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 						</FormItem>
 					)}
 				/>
-				<div className='flex flex-row items-center justify-between space-x-4 align-middle'>
+				<div className='flex flex-row flex-wrap items-center justify-between align-middle'>
 					<FormField
 						control={form.control}
 						name='remember'

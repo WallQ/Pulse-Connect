@@ -1,14 +1,14 @@
 import { ROUTES } from '@/routes';
 
-export type SidebarItemProps = {
+export type SettingsItemProps = {
 	href: string;
 	title: string;
 	icon: string;
 };
 
-export type SidebarItemsProps = Record<string, SidebarItemProps[]>;
+export type SettingsItemsProps = Record<string, SettingsItemProps[]>;
 
-export const sidebarItems: SidebarItemsProps = {
+export const settingsItems: SettingsItemsProps = {
 	General: [
 		{
 			href: ROUTES.SETTINGS.GENERAL.ACCOUNT,

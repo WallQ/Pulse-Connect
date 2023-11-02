@@ -9,6 +9,7 @@ export const ROUTES = {
 	CONTACT: '/contact',
 	TERMS: '/terms',
 	PRIVACY: '/privacy',
+	MAINTENANCE: '/maintenance',
 	SETTINGS: {
 		ROOT: '/settings',
 		GENERAL: {

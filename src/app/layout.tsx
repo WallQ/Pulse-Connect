@@ -3,9 +3,8 @@ import '@/styles/globals.css';
 import { GeistMono, GeistSans } from 'geist/font';
 import { type Metadata } from 'next';
 
+import { Providers } from '@/components/Providers';
 import { Toaster } from '@/components/ui/toaster';
-
-import Providers from './providers';
 
 const URL = process.env.NEXTAUTH_URL ?? '';
 
@@ -106,8 +105,8 @@ const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 }) => {
 	return (
 		<html lang='en'>
-			<body 
-				className={`font-sans h-screen ${GeistSans.variable} ${GeistMono.variable} flex w-full flex-col`}>
+			<body
+				className={`h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} flex w-full flex-col`}>
 				<Providers>
 					{children}
 					<Toaster />

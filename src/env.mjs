@@ -16,6 +16,7 @@ export const env = createEnv({
 		),
 		API_URL: z.string().url(),
 		RECAPTCHA_SECRET_KEY: z.string(),
+		MAINTENANCE_MODE: z.enum(['true', 'false']).default('false')
 	},
 	client: {
 		NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string(),
@@ -30,6 +31,7 @@ export const env = createEnv({
 			process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
 		RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
 		NEXT_PUBLIC_ENCRYPTION_KEY: process.env.NEXT_PUBLIC_ENCRYPTION_KEY,
+		MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
 	},
 	skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 	emptyStringAsUndefined: true,

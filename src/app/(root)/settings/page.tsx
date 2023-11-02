@@ -2,8 +2,8 @@ import { type NextPage } from 'next/types';
 import { Fragment } from 'react';
 
 import {
-	type SidebarItemProps,
-	sidebarItems} from '@/components/Settings/settings-items';
+	type SettingsItemProps,
+	settingsItems} from '@/components/Settings/settings-items';
 import SettingsItem from '@/components/Settings/SettingsItem';
 
 const SettingsPage: NextPage = (): React.ReactNode => {
@@ -13,7 +13,7 @@ const SettingsPage: NextPage = (): React.ReactNode => {
 				<h1 className='text-xl font-semibold'>Settings</h1>
 			</div>
 			<div className='flex w-full flex-col items-start justify-between space-y-8 align-middle'>
-					{Object.keys(sidebarItems).map(
+					{Object.keys(settingsItems).map(
 						(categoty: string, index: number) => (
 							<div
 								key={`${categoty}-${index}`}
@@ -21,8 +21,8 @@ const SettingsPage: NextPage = (): React.ReactNode => {
 								<span className='text-sm text-muted-foreground'>
 									{categoty}
 								</span>
-								{sidebarItems[categoty]?.map(
-									(item: SidebarItemProps, index: number) => (
+								{settingsItems[categoty]?.map(
+									(item: SettingsItemProps, index: number) => (
 										<SettingsItem
 											key={`${item.title}-${index}`}
 											href={item.href}

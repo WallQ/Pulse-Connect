@@ -1,4 +1,3 @@
-import { MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,7 +26,7 @@ const NotFound: React.FunctionComponent = (): React.ReactNode => {
 			<Link
 				href={ROUTES.HOME}
 				className={buttonVariants({ variant: 'default' })}>
-				Go back <MoveRight className='ml-2' />
+				Go back
 			</Link>
 		</main>
 	);

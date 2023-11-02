@@ -12,7 +12,7 @@ import ChatItem from './ChatItem';
 
 const Chatbar: React.FunctionComponent = (): React.ReactNode => {
 	return (
-		<aside className='sticky flex w-[20%] flex-col items-center justify-start space-y-12 overflow-hidden border-l border-input bg-background p-8 align-middle duration-300'>
+		<aside className='flex w-[20%] flex-col items-center justify-start space-y-12 border-l border-input p-8'>
 			<div className='flex w-full max-w-sm flex-row items-center justify-between space-x-2 align-middle'>
 				<Input type='text' placeholder='Search' name='search' />
 				<Button type='submit' size='icon'>
