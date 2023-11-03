@@ -35,9 +35,7 @@ import { getInitials } from '@/utils/initials';
 const Navbar: React.FunctionComponent = async () => {
 	const session = await getServerAuthSession();
 
-	if (!session) throw new Error('User not authenticated!');
-
-	const initials = getInitials(session.user.firstName, session.user.lastName);
+	const initials = getInitials(session?.user.firstName ?? '', session?.user.lastName ?? '');
 
 	return (
 		<header className='flex w-full flex-row items-center justify-between border-b border-input p-8'>
@@ -61,12 +59,13 @@ const Navbar: React.FunctionComponent = async () => {
 				<DropdownMenuTrigger asChild>
 					<div className='flex cursor-pointer flex-row items-center justify-between space-x-2 whitespace-nowrap rounded-md p-1.5  align-middle ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'>
 						<Avatar>
-							<AvatarImage src={session.user.image} />
+							<AvatarImage src={session?.user.image} />
 							<AvatarFallback>{initials}</AvatarFallback>
 						</Avatar>
 						<div className='flex flex-col items-start justify-between align-middle'>
 							<span className='text-base font-medium'>
-								{session.user.firstName} {session.user.lastName}
+								{session?.user.firstName}{' '}
+								{session?.user.lastName}
 							</span>
 							<div className='flex flex-row items-center justify-between space-x-1 align-middle'>
 								<div className='h-3 w-3 rounded-full bg-emerald-500' />{' '}
