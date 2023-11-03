@@ -1,8 +1,15 @@
-import { type NextPage } from 'next/types';
+import { redirect } from 'next/navigation';
+import { type Metadata, type NextPage } from 'next/types';
 
 import Countdown from '@/components/Countdown/Countdown';
+import { ROUTES } from '@/routes';
+
+export const metadata: Metadata = {
+	title: 'Pulse Connect - Maintenance',
+};
 
 const MaintenancePage: NextPage = (): React.ReactNode => {
+	if (process.env.MAINTENANCE_MODE === 'false') redirect(ROUTES.HOME);
 	return (
 		<main className='flex h-screen flex-col items-center justify-center space-y-8 align-middle'>
 			<Countdown

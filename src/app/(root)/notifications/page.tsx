@@ -1,9 +1,13 @@
 import { Check, Trash2 } from 'lucide-react';
-import { type NextPage } from 'next/types';
+import { type Metadata, type NextPage } from 'next/types';
 import { Fragment } from 'react';
 
 import Notification from '@/components/Notification/Notification';
 import { Button } from '@/components/ui/button';
+
+export const metadata: Metadata = {
+	title: 'Pulse Connect - Notifications',
+};
 
 const NotificationsPage: NextPage = (): React.ReactNode => {
 	return (

@@ -48,7 +48,7 @@ const Navbar: React.FunctionComponent = async () => {
 					width={32}
 					height={32}
 					priority={true}
-					className='dark:nightMode h-8 w-full'
+					className='dark:nightMode h-8 w-auto'
 				/>
 			</Link>
 			<div className='flex w-full max-w-lg flex-row items-center justify-between space-x-2'>
@@ -70,9 +70,9 @@ const Navbar: React.FunctionComponent = async () => {
 							</span>
 							<div className='flex flex-row items-center justify-between space-x-1 align-middle'>
 								<div className='h-3 w-3 rounded-full bg-emerald-500' />{' '}
-								<small className='text-xs font-normal text-muted-foreground'>
+								<span className='text-xs font-normal text-muted-foreground'>
 									Online
-								</small>
+								</span>
 							</div>
 						</div>
 						<ChevronDown className='h-5 w-5' />
@@ -87,7 +87,7 @@ const Navbar: React.FunctionComponent = async () => {
 								href={ROUTES.PROFILE}
 								className='flex flex-row justify-center align-middle'>
 								<User className='mr-2 h-4 w-4' />
-								<span>Profile</span>
+								Profile
 							</Link>
 						</DropdownMenuItem>
 						<DropdownMenuItem>
@@ -95,7 +95,7 @@ const Navbar: React.FunctionComponent = async () => {
 								href={ROUTES.SETTINGS.ROOT}
 								className='flex flex-row justify-center align-middle'>
 								<Settings className='mr-2 h-4 w-4' />
-								<span>Settings</span>
+								Settings
 							</Link>
 						</DropdownMenuItem>
 					</DropdownMenuGroup>
@@ -104,7 +104,7 @@ const Navbar: React.FunctionComponent = async () => {
 						<DropdownMenuSub>
 							<DropdownMenuSubTrigger className='cursor-pointer'>
 								<Contrast className='mr-2 h-4 w-4' />
-								<span>Aspecto</span>
+								Appearance
 							</DropdownMenuSubTrigger>
 							<DropdownMenuPortal>
 								<DropdownMenuSubContent>
@@ -135,15 +135,15 @@ const Navbar: React.FunctionComponent = async () => {
 						<DropdownMenuSub>
 							<DropdownMenuSubTrigger className='cursor-pointer'>
 								<Languages className='mr-2 h-4 w-4' />
-								<span>Language</span>
+								Language
 							</DropdownMenuSubTrigger>
 							<DropdownMenuPortal>
 								<DropdownMenuSubContent>
 									<DropdownMenuItem className='cursor-pointer'>
-										<span>Portuguese</span>
+										Portuguese
 									</DropdownMenuItem>
 									<DropdownMenuItem className='cursor-pointer'>
-										<span>English</span>
+										English
 									</DropdownMenuItem>
 								</DropdownMenuSubContent>
 							</DropdownMenuPortal>
@@ -152,14 +152,14 @@ const Navbar: React.FunctionComponent = async () => {
 					<DropdownMenuSeparator />
 					<DropdownMenuItem className='cursor-pointer'>
 						<HelpCircle className='mr-2 h-4 w-4' />
-						<span>Help</span>
+						Help
 					</DropdownMenuItem>
 					<DropdownMenuItem className='cursor-pointer'>
 						<Link
 							href={ROUTES.AUTH.SIGNOUT}
 							className='flex w-full flex-row items-center justify-start align-middle'>
 							<LogOut className='mr-2 h-4 w-4' />
-							<span>Sign Out</span>
+							Sign Out
 						</Link>
 					</DropdownMenuItem>
 				</DropdownMenuContent>

@@ -1,6 +1,6 @@
 import { type NextPage } from 'next/types';
 
-import ResetForm from '@/components/Forms/ResetForm/ResetForm';
+import { ResetForm } from '@/components/Forms/';
 import {
 	Card,
 	CardContent,

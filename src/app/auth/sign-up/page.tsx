@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { type NextPage } from 'next/types';
 
-import SignUpForm from '@/components/Forms/SignUpForm/SignUpForm';
+import { SignUpForm } from '@/components/Forms/';
 import {
 	Card,
 	CardContent,
@@ -10,6 +10,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
+import { ROUTES } from '@/routes';
 
 const SignUpPage: NextPage = (): React.ReactNode => {
 	return (
@@ -26,13 +27,13 @@ const SignUpPage: NextPage = (): React.ReactNode => {
 				</CardContent>
 				<CardFooter>
 					<p className='text-sm text-muted-foreground'>
-						Ao continuar, você concorda com os nossos{' '}
-						<Link href='#' className='underline'>
-							Termos de Serviço
+						By continuing, you agree to our{' '}
+						<Link href={ROUTES.TERMS} className='underline'>
+							Terms & Conditions
 						</Link>{' '}
-						e{' '}
-						<Link href='#' className='underline'>
-							Política de Privacidade
+						and{' '}
+						<Link href={ROUTES.PRIVACY} className='underline'>
+							Privacy Policy
 						</Link>
 						.
 					</p>

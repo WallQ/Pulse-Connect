@@ -16,15 +16,10 @@ const ThemeButton: React.FunctionComponent<ThemeButtonProps> = ({
 	icon,
 }): React.ReactNode => {
 	const { setTheme, theme } = useTheme();
-
-	const handleThemeChange = () => {
-		setTheme(themeType);
-	};
-
 	return (
-		<div
+		<button
 			className='flex w-full flex-row items-center justify-between'
-			onClick={handleThemeChange}>
+			onClick={() => setTheme(themeType)}>
 			<div className='flex flex-row items-center'>
 				<Image
 					src={icon}
@@ -36,7 +31,7 @@ const ThemeButton: React.FunctionComponent<ThemeButtonProps> = ({
 				<span className='w-full'>{title}</span>
 			</div>
 			{theme === themeType ? <Check className='ml-2 h-4 w-4' /> : null}
-		</div>
+		</button>
 	);
 };
 

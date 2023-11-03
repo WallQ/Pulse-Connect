@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { type NextPage } from 'next/types';
 
-import SignUpForm from '@/components/Forms/SignInForm/SignInForm';
+import { SignUpForm } from '@/components/Forms/';
 import {
 	Card,
 	CardContent,
@@ -35,13 +35,13 @@ const SignInPage: NextPage = async () => {
 				</CardContent>
 				<CardFooter>
 					<p className='text-sm text-muted-foreground'>
-						Ao continuar, você concorda com os nossos{' '}
-						<Link href='#' className='underline'>
-							Termos de Serviço
+						By continuing, you agree to our{' '}
+						<Link href={ROUTES.TERMS} className='underline'>
+							Terms & Conditions
 						</Link>{' '}
-						e{' '}
-						<Link href='#' className='underline'>
-							Política de Privacidade
+						and{' '}
+						<Link href={ROUTES.PRIVACY} className='underline'>
+							Privacy Policy
 						</Link>
 						.
 					</p>

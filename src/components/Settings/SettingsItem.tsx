@@ -24,12 +24,12 @@ const SettingsItem: React.FunctionComponent<SettingsItemProps> = ({
 						alt='icon'
 						width={16}
 						height={16}
-						className='h-4 w-4 dark:invert'
+						className='h-5 w-5 dark:invert'
 					/>
 				</div>
-				<span className='text-base font-base'>{title}</span>
+				<span className='text-base font-normal'>{title}</span>
 			</div>
-			<ChevronRight className='h-4 w-4' />
+			<ChevronRight className='h-5 w-5' />
 		</Link>
 	);
 };

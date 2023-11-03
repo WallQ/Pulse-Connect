@@ -13,13 +13,13 @@ import ChatItem from './ChatItem';
 const Chatbar: React.FunctionComponent = (): React.ReactNode => {
 	return (
 		<aside className='flex w-[20%] flex-col items-center justify-start space-y-12 border-l border-input p-8'>
-			<div className='flex w-full max-w-sm flex-row items-center justify-between space-x-2 align-middle'>
+			<div className='flex w-full flex-row items-center justify-between space-x-2'>
 				<Input type='text' placeholder='Search' name='search' />
 				<Button type='submit' size='icon'>
 					<Search className='h-4 w-4' />
 				</Button>
 			</div>
-			<div className='flex w-full flex-row items-center justify-between align-middle'>
+			<div className='flex w-full flex-row items-center justify-between'>
 				<span className='text-lg font-semibold'>Messages</span>
 				<Link
 					href={ROUTES.MESSAGES}
@@ -27,7 +27,7 @@ const Chatbar: React.FunctionComponent = (): React.ReactNode => {
 					Show All
 				</Link>
 			</div>
-			<div className='flex flex-col items-center justify-between align-middle'>
+			<div className='flex flex-col items-center justify-between'>
 				<ScrollArea className='h-128'>
 					{Array.from({ length: 24 }).map((_, index) => (
 						<Fragment key={`chat-${index}`}>
@@ -42,7 +42,7 @@ const Chatbar: React.FunctionComponent = (): React.ReactNode => {
 									}
 								/>
 							</Link>
-							<Separator className='my-2' />
+							<Separator />
 						</Fragment>
 					))}
 				</ScrollArea>

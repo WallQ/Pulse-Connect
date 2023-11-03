@@ -19,7 +19,7 @@ const ChatItem: React.FunctionComponent<ChatItemProps> = ({
 	const initials = getInitials(firstName, lastName);
 
 	return (
-		<div className='flex flex-row items-center justify-between space-x-2 py-4 align-middle'>
+		<div className='flex flex-row items-center justify-between space-x-2 py-6 align-middle'>
 			<Avatar>
 				<AvatarImage src={image} />
 				<AvatarFallback>{initials}</AvatarFallback>

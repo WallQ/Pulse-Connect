@@ -1,6 +1,6 @@
 import { type NextPage } from 'next/types';
 
-import ForgotForm from '@/components/Forms/ForgotForm/ForgotForm';
+import { ForgotForm } from '@/components/Forms/';
 import {
 	Card,
 	CardContent,

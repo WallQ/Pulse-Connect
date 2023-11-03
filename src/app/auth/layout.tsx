@@ -14,13 +14,12 @@ const AuthLayout: React.FunctionComponent<AuthLayoutProps> = ({
 }): React.ReactNode => {
 	return (
 		<main className='flex h-screen w-full flex-row'>
-			<div className='hidden w-1/2 flex-col items-center justify-center bg-foreground align-middle lg:flex'>
+			<div className='hidden w-1/2 flex-col items-center justify-center bg-foreground lg:flex'>
 				<Image
 					src='/logo/Logo Transparent.svg'
 					alt='Logo'
 					width={512}
 					height={512}
-					loading='lazy'
 					className='h-1/2 w-1/2 object-contain'
 				/>
 			</div>
