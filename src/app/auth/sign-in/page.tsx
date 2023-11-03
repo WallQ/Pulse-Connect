@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { type NextPage } from 'next/types';
 
-import { SignUpForm } from '@/components/Forms/';
+import { SignInForm } from '@/components/Forms/';
 import {
 	Card,
 	CardContent,
@@ -31,7 +31,7 @@ const SignInPage: NextPage = async () => {
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
-					<SignUpForm />
+					<SignInForm />
 				</CardContent>
 				<CardFooter>
 					<p className='text-sm text-muted-foreground'>
