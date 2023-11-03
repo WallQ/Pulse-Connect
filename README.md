@@ -1,4 +1,4 @@
-![Logo](https://github.com/WallQ/Pulse-Connect/blob/dev/others/logo/SVG/Logo%20Transparent.svg)
+![Logo](https://github.com/WallQ/Pulse-Connect/blob/dev/others/logo/SVG/Logo%20Transparent.svg){width=50%}
 
 # Create T3 App
 
