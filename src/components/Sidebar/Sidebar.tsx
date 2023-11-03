@@ -8,7 +8,7 @@ import SidebarItem from './SidebarItem';
 const Sidebar: React.FunctionComponent = (): React.ReactNode => {
 	return (
 		<aside className='flex w-[10%] flex-col items-center justify-between space-y-12 border-r border-input p-8'>
-			<Button variant='outline' size='icon'>
+			<Button variant='outline' size='icon' name='menu'>
 				<Menu className='h-5 w-5' />
 			</Button>
 			{Object.keys(sidebarItems).map(

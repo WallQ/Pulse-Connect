@@ -21,7 +21,7 @@ const ChatItem: React.FunctionComponent<ChatItemProps> = ({
 	return (
 		<div className='flex flex-row items-center justify-between space-x-2 py-6 align-middle'>
 			<Avatar>
-				<AvatarImage src={image} />
+				<AvatarImage src={image} alt='Avatar' />
 				<AvatarFallback>{initials}</AvatarFallback>
 			</Avatar>
 			<div className='flex flex-col items-start justify-between space-y-1 align-middle'>

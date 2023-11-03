@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Fragment } from 'react';
 
 import ThemeButton from '@/components/ThemeButton/ThemeButton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -35,7 +36,10 @@ import { getInitials } from '@/utils/initials';
 const Navbar: React.FunctionComponent = async () => {
 	const session = await getServerAuthSession();
 
-	const initials = getInitials(session?.user.firstName ?? '', session?.user.lastName ?? '');
+	const initials = getInitials(
+		session?.user.firstName ?? '',
+		session?.user.lastName ?? '',
+	);
 
 	return (
 		<header className='flex w-full flex-row items-center justify-between border-b border-input p-8'>
@@ -51,15 +55,20 @@ const Navbar: React.FunctionComponent = async () => {
 			</Link>
 			<div className='flex w-full max-w-lg flex-row items-center justify-between space-x-2'>
 				<Input type='text' placeholder='Search' name='search' />
-				<Button type='submit' size='icon'>
+				<Button type='submit' size='icon' name='search'>
 					<Search className='h-5 w-5' />
 				</Button>
 			</div>
 			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<div className='flex cursor-pointer flex-row items-center justify-between space-x-2 whitespace-nowrap rounded-md p-1.5  align-middle ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'>
+				<DropdownMenuTrigger
+					asChild
+					className='flex cursor-pointer flex-row items-center justify-between space-x-2 whitespace-nowrap rounded-md p-1.5  align-middle ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'>
+					<div>
 						<Avatar>
-							<AvatarImage src={session?.user.image} />
+							<AvatarImage
+								src={session?.user.image}
+								alt='Avatar'
+							/>
 							<AvatarFallback>{initials}</AvatarFallback>
 						</Avatar>
 						<div className='flex flex-col items-start justify-between align-middle'>

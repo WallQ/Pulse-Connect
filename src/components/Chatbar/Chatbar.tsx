@@ -15,7 +15,7 @@ const Chatbar: React.FunctionComponent = (): React.ReactNode => {
 		<aside className='flex w-[20%] flex-col items-center justify-start space-y-12 border-l border-input p-8'>
 			<div className='flex w-full flex-row items-center justify-between space-x-2'>
 				<Input type='text' placeholder='Search' name='search' />
-				<Button type='submit' size='icon'>
+				<Button type='submit' size='icon' name='search'>
 					<Search className='h-4 w-4' />
 				</Button>
 			</div>

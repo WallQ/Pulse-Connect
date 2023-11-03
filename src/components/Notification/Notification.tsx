@@ -25,7 +25,7 @@ const Notification: React.FunctionComponent<NotificationProps> = ({
 	return (
 		<div className='flex w-full flex-row items-center justify-start space-x-2 align-middle'>
 			<Avatar>
-				<AvatarImage src={image} />
+				<AvatarImage src={image} alt='Avatar' />
 				<AvatarFallback>{initials}</AvatarFallback>
 			</Avatar>
 			<div className='flex w-full flex-col items-start justify-between space-y-1 align-middle'>
