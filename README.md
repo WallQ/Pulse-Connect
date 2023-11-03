@@ -8,12 +8,12 @@
 
 ## Index
 
-- <a href="#description">Description</a>
-- <a href="#technologies">Technologies</a>
-- <a href="#deployment">Deployment</a>
-- <a href="#getting-started">Getting Started</a>
-- <a href="#contributors">Contributors</a>
-- <a href="#license">License</a>
+-   [Description](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#description)
+-   [Technologies](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#technologies)
+-   [Deployment](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#deployment)
+-   [Getting Started](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#getting-started)
+-   [Contributors](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#contributors)
+-   [License](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#license)
 
 ## Description
 
@@ -21,9 +21,9 @@ Welcome to Pulse Connect, the ultimate platform for seamless and discreet connec
 
 ### Key Features:
 
-- **Anonymous Connections:** With Pulse Connect, you can connect with other users anonymously. You won't know who has connected with you until you initiate a connection with them. This adds an element of surprise and intrigue to your networking experience, making it more exciting and spontaneous.
-- **Secure and Private Chat:** Once you've made a connection, you can start chatting with your newfound contacts securely and privately. Your messages are protected, ensuring your conversations remain confidential and personal.
-- **Import Connections:** Pulse Connect takes networking to the next level by allowing you to import connections from other social networks. This means you can seamlessly transition your existing connections into our platform, making it easier than ever to stay connected with friends, colleagues, and acquaintances.
+-   **Anonymous Connections:** With Pulse Connect, you can connect with other users anonymously. You won't know who has connected with you until you initiate a connection with them. This adds an element of surprise and intrigue to your networking experience, making it more exciting and spontaneous.
+-   **Secure and Private Chat:** Once you've made a connection, you can start chatting with your newfound contacts securely and privately. Your messages are protected, ensuring your conversations remain confidential and personal.
+-   **Import Connections:** Pulse Connect takes networking to the next level by allowing you to import connections from other social networks. This means you can seamlessly transition your existing connections into our platform, making it easier than ever to stay connected with friends, colleagues, and acquaintances.
 
 ## Technologies
 
