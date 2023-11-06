@@ -71,9 +71,11 @@ pnpm run dev
 The application should now be running locally on http://localhost:3000.
 
 ## Support
+
 Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
 ## Roadmap
+
 If you have ideas for releases in the future, it is a good idea to list them in the README.
 
 ## Contributors
@@ -81,7 +83,12 @@ If you have ideas for releases in the future, it is a good idea to list them in 
 We welcome contributions to Pulse Connect! Feel free to contribute to this project but please read the [Contributing Guidelines](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/blob/master/CONTRIBUTING.md) before opening an issue or pull request so you understand the branching strategy and local development environment.
 
 ## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+
+-   [AXEL GUIMARAES](mailto:8180657@estg.ipp.pt)
+-   [DANIEL TEIXEIRA](mailto:8200378@estg.ipp.pt)
+-   [HUGO RIBEIRO](mailto:8200441@estg.ipp.pt)
+-   [MÁRCIO RIBEIRO](mailto:8200408@estg.ipp.pt)
+-   [Sérgio Félix](mailto:8200615@estg.ipp.pt)
 
 ## License
 

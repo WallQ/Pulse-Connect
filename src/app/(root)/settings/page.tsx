@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const SettingsPage: NextPage = (): React.ReactNode => {
 	return (
 		<Fragment>
-			<div className='flex w-full flex-row items-center justify-between align-middle'>
+			<div className='flex w-full flex-row items-center justify-between align-middle min-h-[40px]'>
 				<h1 className='text-xl font-semibold'>Settings</h1>
 			</div>
 			<div className='flex w-full flex-col items-start justify-between space-y-8 align-middle'>

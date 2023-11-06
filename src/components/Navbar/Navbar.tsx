@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment } from 'react';
 
 import ThemeButton from '@/components/ThemeButton/ThemeButton';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -53,9 +52,18 @@ const Navbar: React.FunctionComponent = async () => {
 					className='dark:nightMode h-8 w-auto'
 				/>
 			</Link>
-			<div className='flex w-full max-w-lg flex-row items-center justify-between space-x-2'>
-				<Input type='text' placeholder='Search' name='search' />
-				<Button type='submit' size='icon' name='search'>
+			<div className='flex w-full flex-row items-center justify-center space-x-2'>
+				<Input
+					type='text'
+					placeholder='Search'
+					name='search'
+					className='max-w-lg'
+				/>
+				<Button
+					type='submit'
+					variant='default'
+					size='icon'
+					className='shrink-0'>
 					<Search className='h-5 w-5' />
 				</Button>
 			</div>

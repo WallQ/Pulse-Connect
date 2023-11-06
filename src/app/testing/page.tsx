@@ -1,4 +1,10 @@
-const Testing: React.FunctionComponent = (): React.ReactNode => {
+type TestingProps = {
+	// props: any;
+};
+
+const Testing: React.FunctionComponent<
+	TestingProps
+> = ({}): React.ReactNode => {
 	return <h1>Testing</h1>;
 };
 
