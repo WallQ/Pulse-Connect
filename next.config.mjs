@@ -16,4 +16,4 @@ const config = {
 	},
 };
 
-export default million.next(config, { auto: { rsc: true } });
+export default million.next(config, { auto: { rsc: true }, mute: true });

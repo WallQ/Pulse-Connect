@@ -15,16 +15,23 @@ export const env = createEnv({
 			process.env.VERCEL ? z.string() : z.string().url(),
 		),
 		API_URL: z.string().url(),
+		RECAPTCHA_SECRET_KEY: z.string(),
+		MAINTENANCE_MODE: z.enum(['true', 'false']).default('false')
 	},
 	client: {
-		// NEXT_PUBLIC_CLIENTVAR: z.string(),
+		NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string(),
+		NEXT_PUBLIC_ENCRYPTION_KEY: z.string(),
 	},
 	runtimeEnv: {
 		NODE_ENV: process.env.NODE_ENV,
 		NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
 		NEXTAUTH_URL: process.env.NEXTAUTH_URL,
 		API_URL: process.env.API_URL,
-		// NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+		NEXT_PUBLIC_RECAPTCHA_SITE_KEY:
+			process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+		RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
+		NEXT_PUBLIC_ENCRYPTION_KEY: process.env.NEXT_PUBLIC_ENCRYPTION_KEY,
+		MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
 	},
 	skipValidation: !!process.env.SKIP_ENV_VALIDATION,
 	emptyStringAsUndefined: true,

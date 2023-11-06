@@ -14,7 +14,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['var(--font-sans)', ...fontFamily.sans],
+				sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+				mono: ['var(--font-geist-mono)', ...fontFamily.mono],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -69,6 +70,21 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+			},
+			maxWidth: {
+				xxs: '16rem',
+				'8xl': '88rem',
+				'9xl': '96rem',
+				'10xl': '104rem',
+				'11xl': '112rem',
+				'12xl': '120rem',
+			},
+			width: {
+				'w-96': '24rem',
+			},
+			height: {
+				'96': '24rem',
+				'128': '32rem',
 			},
 		},
 	},

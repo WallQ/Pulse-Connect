@@ -1,16 +1,10 @@
 import '@/styles/globals.css';
 
+import { GeistMono, GeistSans } from 'geist/font';
 import { type Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
+import { Providers } from '@/components/Providers';
 import { Toaster } from '@/components/ui/toaster';
-
-import Providers from './providers';
-
-const inter = Inter({
-	subsets: ['latin'],
-	variable: '--font-sans',
-});
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect',
@@ -57,8 +51,38 @@ export const metadata: Metadata = {
 		},
 	],
 	manifest: '/site.webmanifest',
-	openGraph: {},
-	twitter: {},
+	openGraph: {
+		title: 'Pulse Connect',
+		description:
+			'This is an evaluation project of the LDS curricular unit.',
+		url: 'https://pulse-connect-omega.vercel.app/',
+		siteName: 'Pulse Connect',
+		images: [
+			{
+				url: 'https://pulse-connect-omega.vercel.app/og-image.png',
+				width: 1200,
+				height: 630,
+				alt: 'Pulse Connect',
+			},
+		],
+		locale: 'en-US',
+		type: 'website',
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Pulse Connect',
+		description:
+			'This is an evaluation project of the LDS curricular unit.',
+		creator: '@pulseconnect',
+		images: [
+			{
+				url: 'https://pulse-connect-omega.vercel.app/twitter-image.png',
+				width: 1200,
+				height: 630,
+				alt: 'Pulse Connect',
+			},
+		],
+	},
 	appleWebApp: {},
 	other: {
 		'apple-mobile-web-app-title': 'Pulse Connect',
@@ -68,19 +92,26 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({
+type RootLayoutProps = {
+	children: React.ReactNode;
+};
+
+const RootLayout: React.FunctionComponent<RootLayoutProps> = ({
 	children,
 }: {
 	children: React.ReactNode;
-}) {
+}) => {
 	return (
 		<html lang='en'>
-			<body className={`font-sans ${inter.variable}`}>
+			<body
+				className={`h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} flex w-full flex-col`}>
 				<Providers>
-					<main>{children}</main>
+					{children}
 					<Toaster />
 				</Providers>
 			</body>
 		</html>
 	);
-}
+};
+
+export default RootLayout;

@@ -45,6 +45,7 @@ export const signUpSchema = z
 		email: emailConstraints(),
 		password: passwordConstraints(),
 		confirmPassword: passwordConstraints(),
+		remember: z.boolean().optional(),
 	})
 	.refine(
 		(data) => {
@@ -60,12 +61,22 @@ export const forgotPasswordSchema = z.object({
 	email: emailConstraints(),
 });
 
-export const resetPasswordSchema = z.object({
-	password: passwordConstraints(),
-	confirmPassword: passwordConstraints(),
-});
+export const resetPasswordSchema = z
+	.object({
+		password: passwordConstraints(),
+		confirmPassword: passwordConstraints(),
+	})
+	.refine(
+		(data) => {
+			return data.password === data.confirmPassword;
+		},
+		{
+			message: 'Passwords must match each other.',
+			path: ['confirmPassword'],
+		},
+	);
 
 export type ISignIn = z.infer<typeof signInSchema>;
 export type ISignUp = z.infer<typeof signUpSchema>;
-export type IForgotPassword = z.infer<typeof forgotPasswordSchema>;
-export type IResetPassword = z.infer<typeof resetPasswordSchema>;
+export type IForgot = z.infer<typeof forgotPasswordSchema>;
+export type IReset = z.infer<typeof resetPasswordSchema>;
