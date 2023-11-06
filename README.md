@@ -84,10 +84,10 @@ We welcome contributions to Pulse Connect! Feel free to contribute to this proje
 
 ## Authors and acknowledgment
 
--   [AXEL GUIMARAES](mailto:8180657@estg.ipp.pt)
--   [DANIEL TEIXEIRA](mailto:8200378@estg.ipp.pt)
--   [HUGO RIBEIRO](mailto:8200441@estg.ipp.pt)
--   [MÁRCIO RIBEIRO](mailto:8200408@estg.ipp.pt)
+-   [Axel Guimarães](mailto:8180657@estg.ipp.pt)
+-   [Daniel Teixeira](mailto:8200378@estg.ipp.pt)
+-   [Hugo Ribeiro](mailto:8200441@estg.ipp.pt)
+-   [Márcio Ribeiro](mailto:8200408@estg.ipp.pt)
 -   [Sérgio Félix](mailto:8200615@estg.ipp.pt)
 
 ## License
