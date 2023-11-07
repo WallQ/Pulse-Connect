@@ -20,10 +20,10 @@ const SidebarItem: React.FunctionComponent<SidebarItemProps> = ({
 	return (
 		<Link
 			href={href}
-			className='flex cursor-pointer flex-col items-center justify-between space-y-2 rounded-md align-middle underline-offset-4 ring-offset-background transition-colors hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'>
+			className='flex flex-col items-center justify-between space-y-2 underline-offset-4 hover:underline'>
 			<Image
 				src={icon}
-				alt='icon'
+				alt='Icon'
 				width={20}
 				height={20}
 				className='h-5 w-5 dark:invert'

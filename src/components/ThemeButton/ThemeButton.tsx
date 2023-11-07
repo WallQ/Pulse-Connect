@@ -23,14 +23,14 @@ const ThemeButton: React.FunctionComponent<ThemeButtonProps> = ({
 			<div className='flex flex-row items-center'>
 				<Image
 					src={icon}
-					alt='icon'
+					alt='Icon'
 					width={20}
 					height={20}
-					className='mr-2 h-4 w-4 dark:nightMode'
+					className='dark:nightMode mr-2 h-4 w-4'
 				/>
 				<span className='w-full'>{title}</span>
 			</div>
-			{theme === themeType ? <Check className='ml-2 h-4 w-4' /> : null}
+			{theme === themeType && <Check className='ml-2 h-4 w-4' />}
 		</button>
 	);
 };

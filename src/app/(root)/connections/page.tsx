@@ -27,9 +27,9 @@ export const metadata: Metadata = {
 const ConnectionsPage: NextPage = (): React.ReactNode => {
 	return (
 		<Fragment>
-			<div className='flex w-full flex-row items-center justify-between align-middle'>
+			<div className='flex w-full flex-col items-start justify-between md:flex-row md:items-center space-y-2'>
 				<h1 className='text-xl font-semibold'>Connections</h1>
-				<div className='flex w-full flex-row items-center justify-end space-x-2'>
+				<div className='flex w-full flex-row items-center justify-start md:justify-end space-x-2'>
 					<DropdownMenu>
 						<DropdownMenuTrigger>
 							<Button variant='outline' size='icon'>
@@ -59,7 +59,7 @@ const ConnectionsPage: NextPage = (): React.ReactNode => {
 							type='text'
 							placeholder='Search'
 							name='search'
-							className='max-w-xs'
+							className='w-full md:max-w-xs'
 						/>
 						<Button
 							type='submit'
@@ -81,7 +81,7 @@ const ConnectionsPage: NextPage = (): React.ReactNode => {
 					</TabsTrigger>
 				</TabsList>
 				<TabsContent value='connections' className='mt-8'>
-					<div className='grid grid-cols-4 gap-4'>
+					<div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
 						{Array.from({ length: 24 }).map((_, index) => (
 							<ConnectionCard
 								key={`connection-${index}`}

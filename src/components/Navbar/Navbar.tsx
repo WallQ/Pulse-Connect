@@ -48,7 +48,6 @@ const Navbar: React.FunctionComponent = async () => {
 					alt='Logo'
 					width={32}
 					height={32}
-					priority={true}
 					className='dark:nightMode h-8 w-auto'
 				/>
 			</Link>

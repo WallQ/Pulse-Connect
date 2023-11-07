@@ -21,7 +21,7 @@ const SettingsItem: React.FunctionComponent<SettingsItemProps> = ({
 				<div className='p-2 rounded-md border border-input bg-background text-sm font-medium'>
 					<Image
 						src={icon}
-						alt='icon'
+						alt='Icon'
 						width={16}
 						height={16}
 						className='h-5 w-5 dark:invert'

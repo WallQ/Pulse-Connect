@@ -24,7 +24,7 @@ const FilterButton: React.FunctionComponent<ThemeButtonProps> = ({
 			<div className='flex flex-row items-center'>
 				<Image
 					src={icon}
-					alt='icon'
+					alt='Icon'
 					width={20}
 					height={20}
 					className='dark:nightMode mr-2 h-4 w-4'
