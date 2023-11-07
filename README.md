@@ -12,7 +12,10 @@
 -   [Technologies](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#technologies)
 -   [Deployment](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#deployment)
 -   [Getting Started](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#getting-started)
+-   [Support](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#support)
+-   [Roadmap](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#roadmap)
 -   [Contributors](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#contributors)
+-   [Authors](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#authors)
 -   [License](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/tree/master/front-end#license)
 
 ## Description
@@ -91,7 +94,7 @@ Please check back regularly for updates on our progress and to discover the late
 
 We welcome contributions to Pulse Connect! Feel free to contribute to this project but please read the [Contributing Guidelines](https://gitlab.estg.ipp.pt/lds-2022-2023/lds-2023-2024/-/blob/master/CONTRIBUTING.md) before opening an issue or pull request so you understand the branching strategy and local development environment.
 
-## Authors and acknowledgment
+## Authors
 
 -   [Axel Guimarães](mailto:8180657@estg.ipp.pt)
 -   [Daniel Teixeira](mailto:8200378@estg.ipp.pt)
