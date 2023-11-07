@@ -27,9 +27,9 @@ export const metadata: Metadata = {
 const ConnectionsPage: NextPage = (): React.ReactNode => {
 	return (
 		<Fragment>
-			<div className='flex w-full flex-col items-start justify-between md:flex-row md:items-center space-y-2'>
+			<div className='flex w-full flex-col items-start justify-between space-y-2 md:flex-row md:items-center'>
 				<h1 className='text-xl font-semibold'>Connections</h1>
-				<div className='flex w-full flex-row items-center justify-start md:justify-end space-x-2'>
+				<div className='flex w-full flex-row items-center justify-start space-x-2 md:justify-end'>
 					<DropdownMenu>
 						<DropdownMenuTrigger>
 							<Button variant='outline' size='icon'>

@@ -83,10 +83,10 @@ As of the current state of our project, we are still in development and actively
 
 Our upcoming plans include:
 
-- **Performance Enhancements:** We understand the importance of a fast and reliable application. We will continue to optimize our software to provide you with the best performance possible.
-- **New Features:** We have a list of exciting features in the pipeline that we believe will take your user experience to the next level. Stay tuned for updates on these new additions.
-- **Bug Fixes:** Our team is dedicated to resolving any reported issues promptly. Your feedback is invaluable in helping us create a stable and reliable product.
-- **User Feedback:** We greatly value your input. Feel free to reach out to us at [contact@pulseconnect.com](mailto:contact@pulseconnect.com) with your suggestions, feature requests, or any other feedback you may have. We actively consider user feedback in our development process.
+-   **Performance Enhancements:** We understand the importance of a fast and reliable application. We will continue to optimize our software to provide you with the best performance possible.
+-   **New Features:** We have a list of exciting features in the pipeline that we believe will take your user experience to the next level. Stay tuned for updates on these new additions.
+-   **Bug Fixes:** Our team is dedicated to resolving any reported issues promptly. Your feedback is invaluable in helping us create a stable and reliable product.
+-   **User Feedback:** We greatly value your input. Feel free to reach out to us at [contact@pulseconnect.com](mailto:contact@pulseconnect.com) with your suggestions, feature requests, or any other feedback you may have. We actively consider user feedback in our development process.
 
 Please check back regularly for updates on our progress and to discover the latest improvements we are making to our software. Thank you for your support and patience as we continue to evolve and enhance our product.
 

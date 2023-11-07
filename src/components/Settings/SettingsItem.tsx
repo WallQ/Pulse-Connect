@@ -16,9 +16,9 @@ const SettingsItem: React.FunctionComponent<SettingsItemProps> = ({
 	return (
 		<Link
 			href={href}
-			className='p-2 flex w-full cursor-pointer flex-row items-center justify-between rounded-md align-middle hover:bg-accent hover:text-accent-foreground'>
+			className='flex w-full cursor-pointer flex-row items-center justify-between rounded-md p-2 align-middle hover:bg-accent hover:text-accent-foreground'>
 			<div className='flex flex-row items-center justify-between space-x-2 align-middle'>
-				<div className='p-2 rounded-md border border-input bg-background text-sm font-medium'>
+				<div className='rounded-md border border-input bg-background p-2 text-sm font-medium'>
 					<Image
 						src={icon}
 						alt='Icon'
