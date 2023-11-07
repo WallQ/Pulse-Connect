@@ -72,11 +72,20 @@ The application should now be running locally on http://localhost:3000.
 
 ## Support
 
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+If you have any questions, encounter issues, or need assistance with our software, please don't hesitate to reach out to us. You can contact our support team via email at [contact@pulseconnect.com](mailto:contact@pulseconnect.com). We are here to help and will do our best to address your inquiries and concerns in a timely manner. Your feedback is important to us, and we appreciate your interest in our product.
 
 ## Roadmap
 
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+As of the current state of our project, we are still in development and actively working to enhance our software. We are committed to improving performance, fixing any issues that may arise, and adding exciting new features to make your experience even better.
+
+Our upcoming plans include:
+
+- **Performance Enhancements:** We understand the importance of a fast and reliable application. We will continue to optimize our software to provide you with the best performance possible.
+- **New Features:** We have a list of exciting features in the pipeline that we believe will take your user experience to the next level. Stay tuned for updates on these new additions.
+- **Bug Fixes:** Our team is dedicated to resolving any reported issues promptly. Your feedback is invaluable in helping us create a stable and reliable product.
+- **User Feedback:** We greatly value your input. Feel free to reach out to us at [contact@pulseconnect.com](mailto:contact@pulseconnect.com) with your suggestions, feature requests, or any other feedback you may have. We actively consider user feedback in our development process.
+
+Please check back regularly for updates on our progress and to discover the latest improvements we are making to our software. Thank you for your support and patience as we continue to evolve and enhance our product.
 
 ## Contributors
 
