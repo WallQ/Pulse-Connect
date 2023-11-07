@@ -28,7 +28,6 @@ const Countdown: React.FunctionComponent<CountdownProps> = ({
 				alt='Logo'
 				width={32}
 				height={32}
-				priority={true}
 				className='dark:nightMode h-48 w-full'
 			/>
 			<CountdownBox value={minutes} label='Minute(s)' />

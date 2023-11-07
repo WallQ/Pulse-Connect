@@ -20,7 +20,6 @@ const PrivacyPage: NextPage = (): React.ReactNode => {
 						alt='Logo'
 						width={32}
 						height={32}
-						priority={true}
 						className='dark:nightMode h-12 w-auto'
 					/>
 				</Link>

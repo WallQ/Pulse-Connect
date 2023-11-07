@@ -12,7 +12,6 @@ const NotFound: React.FunctionComponent = (): React.ReactNode => {
 				alt='Logo'
 				width={32}
 				height={32}
-				priority={true}
 				className='dark:nightMode h-48 w-full'
 			/>
 			<h1 className='text-center text-4xl font-extrabold tracking-tight lg:text-5xl'>
