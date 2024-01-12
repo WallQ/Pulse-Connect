@@ -10,7 +10,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
 	DropdownMenu,
@@ -26,6 +25,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { APP_ROUTES } from '@/routes/app';
+import { getServerAuthSession } from '@/server/auth';
 import { getInitials } from '@/utils/get-initials';
 
 import SearchBar from './SearchBar';

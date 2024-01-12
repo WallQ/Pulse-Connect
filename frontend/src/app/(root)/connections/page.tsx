@@ -6,7 +6,6 @@ import {
 import { type Metadata, type NextPage } from 'next/types';
 import { Fragment } from 'react';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import {
 	ConnectionsView,
 	PendingConnectionsView,
@@ -16,6 +15,7 @@ import { Title } from '@/components/shared/Title';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { APP_ROUTES } from '@/routes/app';
+import { getServerAuthSession } from '@/server/auth';
 import {
 	getConnectionsById,
 	getPendingConnectionsById,

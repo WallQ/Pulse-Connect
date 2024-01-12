@@ -1,13 +1,13 @@
 import { type Metadata, type NextPage } from 'next/types';
 import { Fragment } from 'react';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import { SettingsItem } from '@/components/SettingsPage';
 import { BackButton } from '@/components/shared/BackButton';
 import { Title } from '@/components/shared/Title';
 import { Separator } from '@/components/ui/separator';
 import { settingsItems } from '@/data/settings';
 import { APP_ROUTES } from '@/routes/app';
+import { getServerAuthSession } from '@/server/auth';
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect - Settings',

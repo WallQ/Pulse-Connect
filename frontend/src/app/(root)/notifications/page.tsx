@@ -6,12 +6,12 @@ import {
 import { type Metadata, type NextPage } from 'next/types';
 import { Fragment } from 'react';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import { NotificationsView } from '@/components/NotificationPage/';
 import { BackButton } from '@/components/shared/BackButton';
 import { Title } from '@/components/shared/Title';
 import { Separator } from '@/components/ui/separator';
 import { APP_ROUTES } from '@/routes/app';
+import { getServerAuthSession } from '@/server/auth';
 import { getNotificationsById } from '@/services/Notifications';
 
 export const metadata: Metadata = {

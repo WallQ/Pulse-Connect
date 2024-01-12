@@ -6,12 +6,12 @@ import {
 import { type Metadata, type NextPage } from 'next/types';
 import { Fragment } from 'react';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import { ProfileConnectionsView } from '@/components/ProfilePage';
 import { BackButton } from '@/components/shared/BackButton';
 import { Title } from '@/components/shared/Title';
 import { Separator } from '@/components/ui/separator';
 import { APP_ROUTES } from '@/routes/app';
+import { getServerAuthSession } from '@/server/auth';
 import { getConnectionsById } from '@/services/Connections';
 
 export const metadata: Metadata = {

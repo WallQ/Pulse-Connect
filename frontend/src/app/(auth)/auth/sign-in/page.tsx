@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { type Metadata, type NextPage } from 'next/types';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import { SignInForm } from '@/components/Forms';
 import {
 	Card,
@@ -13,6 +12,7 @@ import {
 	CardTitle,
 } from '@/components/ui/card';
 import { APP_ROUTES } from '@/routes/app';
+import { getServerAuthSession } from '@/server/auth';
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect - Sign In',

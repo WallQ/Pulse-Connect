@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 import socketio from 'socket.io-client';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import { env } from '@/env.mjs';
+import { getServerAuthSession } from '@/server/auth';
 
 const session = await getServerAuthSession();
 

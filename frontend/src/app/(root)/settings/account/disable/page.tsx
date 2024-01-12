@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { type Metadata, type NextPage } from 'next/types';
 import { Fragment } from 'react';
 
-import { getServerAuthSession } from '@/app/api/auth/[...nextauth]/route';
 import { DisableAccountForm } from '@/components/Forms';
 import { BackButton } from '@/components/shared/BackButton';
 import { Title } from '@/components/shared/Title';
@@ -19,6 +18,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { CONTACT_EMAIL } from '@/data/constants';
 import { APP_ROUTES } from '@/routes/app';
+import { getServerAuthSession } from '@/server/auth';
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect - Disable Account',
