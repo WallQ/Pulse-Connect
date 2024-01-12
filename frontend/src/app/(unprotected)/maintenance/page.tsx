@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 import { type Metadata, type NextPage } from 'next/types';
 
 import Countdown from '@/components/MaintenancePage/Countdown';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect - Maintenance',

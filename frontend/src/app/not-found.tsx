@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { buttonVariants } from '@/components/ui/button';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 const NotFound: React.FunctionComponent = (): React.ReactNode => {
 	return (

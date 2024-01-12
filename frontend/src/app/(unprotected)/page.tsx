@@ -34,7 +34,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { CONTACT_EMAIL } from '@/data/constants';
 import { memberItems } from '@/data/members';
 import { questionsItems } from '@/data/questions';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { getInitials } from '@/utils/get-initials';
 
 export const metadata: Metadata = {

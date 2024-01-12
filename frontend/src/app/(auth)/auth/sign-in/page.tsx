@@ -12,7 +12,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect - Sign In',

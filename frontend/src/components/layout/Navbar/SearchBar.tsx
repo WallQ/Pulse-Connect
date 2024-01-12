@@ -15,7 +15,7 @@ import {
 	FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { type SearchUser, SearchUserSchema } from '@/validators/Search';
 
 const SearchBar: React.FunctionComponent = (): React.ReactNode => {

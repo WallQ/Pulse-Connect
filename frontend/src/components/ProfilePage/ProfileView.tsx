@@ -26,7 +26,7 @@ import {
 	DialogTrigger,
 } from '@/components/ui/dialog';
 import { useGetUser } from '@/hooks/useUsers';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { formatJoinDate } from '@/utils/format-join-date';
 import { formatNumber } from '@/utils/format-number';
 import { formatURL } from '@/utils/format-url';

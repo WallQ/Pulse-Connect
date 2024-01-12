@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/react';
 import { API_ROUTES } from '@/routes/api';
 import { type Messages } from '@/types/Messages';
 
-export const getMessagesById = async (id: string): Promise<Messages> => {
+export const getMessagesById = async (_id: string): Promise<Messages> => {
 	const session = await getSession();
 
 	if (!session) throw new Error('Unauthenticated!');

@@ -21,8 +21,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { toast } from '@/components/ui/use-toast';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { decrypt, encrypt } from '@/utils/cryptography';
 import {
 	readFromLocalStorage,
@@ -103,20 +102,6 @@ const SignInForm: React.FunctionComponent = (): React.ReactNode => {
 				message: 'Invalid credentials',
 			});
 		}
-	};
-
-	const handleTwitterSignIn = async () => {
-		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/externalAuth/twitter-callback`,
-			{
-				method: 'GET',
-				headers: {
-					Accept: 'application/json',
-				},
-			},
-		);
-
-		console.log(response);
 	};
 
 	return (

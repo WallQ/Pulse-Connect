@@ -1,7 +1,7 @@
 import { type MetadataRoute } from 'next';
 
 import { URL } from '@/data/constants';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 const sitemap = (): MetadataRoute.Sitemap => {
 	return [

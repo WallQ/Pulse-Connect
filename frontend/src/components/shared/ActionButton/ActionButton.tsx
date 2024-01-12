@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 
 import { buttonVariants } from '@/components/ui/button';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 const ActionButton: React.FunctionComponent = (): React.ReactNode => {
 	const { data: session } = useSession();

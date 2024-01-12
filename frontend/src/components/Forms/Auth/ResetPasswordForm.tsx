@@ -20,7 +20,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { toast } from '@/components/ui/use-toast';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { type ResetPassword, ResetPasswordSchema } from '@/validators/Auth';
 
 const ResetPasswordForm: React.FunctionComponent = (): React.ReactNode => {

@@ -3,7 +3,7 @@
 import { type NextPage } from 'next/types';
 import { signOut } from 'next-auth/react';
 
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 const SignOutPage: NextPage = (): React.ReactNode => {
 	try {

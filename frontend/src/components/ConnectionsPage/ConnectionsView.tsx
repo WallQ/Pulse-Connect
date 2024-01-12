@@ -1,13 +1,15 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
+
 import { useGetConnections } from '@/hooks/useConnections';
+import { getUserById } from '@/services/Users';
+import { type User } from '@/types/Users';
+
 import CardSkeleton from './CardSkeleton';
 import ConnectionCard from './ConnectionCard';
 import InformationMessage from './InformationMessage';
-import { useEffect, useState } from 'react';
-import { User } from '@/types/Users';
-import { getUserById } from '@/services/Users';
-import { useSession } from 'next-auth/react';
 
 type ConnectionsViewProps = {
 	userId: string;
@@ -24,7 +26,7 @@ const ConnectionsView: React.FunctionComponent<ConnectionsViewProps> = ({
 	} = useGetConnections(userId);
 
 	const [users, setUsers] = useState<Map<string, User>>(new Map());
-	const [loadingUsers, setLoadingUsers] = useState<boolean>(false);
+	const [loadingUsers] = useState<boolean>(false);
 
 	const { data: session } = useSession();
 
@@ -60,10 +62,10 @@ const ConnectionsView: React.FunctionComponent<ConnectionsViewProps> = ({
 
 			// Fetch user details for each unique user ID
 			uniqueUserIds.forEach((uniqueUserId) => {
-				fetchUserDetails(uniqueUserId);
+				void fetchUserDetails(uniqueUserId);
 			});
 		}
-	}, [connections]);
+	}, [connections, session?.user.id]);
 
 	if (connectionsLoading || loadingUsers)
 		return (

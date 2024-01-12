@@ -25,7 +25,7 @@ import {
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { getInitials } from '@/utils/get-initials';
 
 import SearchBar from './SearchBar';

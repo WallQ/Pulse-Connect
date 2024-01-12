@@ -8,7 +8,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import TwitterProvider from 'next-auth/providers/twitter';
 
 import { env } from '@/env.mjs';
-import { API_ROUTES } from '@/routes/api';
+import { APP_ROUTES } from '@/routes/app';
 import { signIn } from '@/services/Auth';
 
 declare module 'next-auth' {
@@ -85,9 +85,9 @@ export const authOptions: NextAuthOptions = {
 		strategy: 'jwt',
 	},
 	pages: {
-		signIn: '/auth/sign-in',
-		newUser: '/auth/sign-up',
-		signOut: '/auth/sign-out',
+		signIn: APP_ROUTES.AUTH.SIGN_IN,
+		newUser: APP_ROUTES.AUTH.SIGN_UP,
+		signOut: APP_ROUTES.AUTH.SIGN_OUT,
 	},
 	secret: env.NEXTAUTH_SECRET,
 	useSecureCookies: env.NODE_ENV === 'production',

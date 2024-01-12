@@ -8,8 +8,8 @@ import { Fragment } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { useGetConnections } from '@/hooks/useConnections';
-import { APP_ROUTES } from '@/routes/APP';
-import { getInitials } from '@/utils/get-initials';
+import { APP_ROUTES } from '@/routes/app';
+// import { getInitials } from '@/utils/get-initials';
 
 type ProfileConnectionsViewProps = {
 	userId: string;
@@ -49,10 +49,10 @@ const ProfileConnectionsView: React.FunctionComponent<
 								alt={`${connection.firstName} ${connection.lastName} Profile Image`}
 							/>
 							<AvatarFallback>
-								{getInitials(
+								{/* {getInitials(
 									connection.firstName,
 									connection.lastName,
-								)}
+								)} */}
 							</AvatarFallback>
 						</Avatar>
 						<div className='flex flex-col items-start justify-between'>

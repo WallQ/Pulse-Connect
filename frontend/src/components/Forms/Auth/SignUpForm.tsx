@@ -21,7 +21,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { toast } from '@/components/ui/use-toast';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { signUp } from '@/services/Auth';
 import { encrypt } from '@/utils/cryptography';
 import {

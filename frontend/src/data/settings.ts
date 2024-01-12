@@ -13,7 +13,7 @@ import {
 	User,
 } from 'lucide-react';
 
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 export type SettingsItemProps = {
 	url: string;

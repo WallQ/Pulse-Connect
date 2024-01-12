@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 
 import { ActionButton } from '@/components/shared/ActionButton';
 import { CONTACT_EMAIL } from '@/data/constants';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 export const metadata: Metadata = {
 	title: 'Pulse Connect - Privacy Policy',

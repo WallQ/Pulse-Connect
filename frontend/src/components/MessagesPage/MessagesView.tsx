@@ -24,7 +24,7 @@ import {
 	TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { useGetMessages } from '@/hooks/useMessages';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { type Message } from '@/types/Messages';
 import { formatTimestamp } from '@/utils/format-timestamp';
 import { getInitials } from '@/utils/get-initials';

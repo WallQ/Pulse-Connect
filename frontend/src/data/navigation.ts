@@ -1,4 +1,4 @@
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 
 export type NavigationItemProps = {
 	url: string;

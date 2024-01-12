@@ -8,7 +8,7 @@ import { Fragment } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { useDeleteConnection } from '@/hooks/useConnections';
-import { APP_ROUTES } from '@/routes/APP';
+import { APP_ROUTES } from '@/routes/app';
 import { getInitials } from '@/utils/get-initials';
 
 type ConnectionCardProps = {
