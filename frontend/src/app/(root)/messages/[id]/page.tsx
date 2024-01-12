@@ -148,7 +148,7 @@ const Chat = () => {
 
 			const inputElement = document.querySelector('.message-input input');
 			if (inputElement) {
-				inputElement.value = '';
+				inputElement;
 			}
 		}
 	};
@@ -217,7 +217,8 @@ const Chat = () => {
 									} rounded-lg`}
 									style={{ fontStyle: 'italic' }}>
 									<span>
-										This user&apos;s message has been deleted.
+										This user&apos;s message has been
+										deleted.
 									</span>
 									<div className='text-xs text-gray-500'>
 										{formatTimestamp(message.sent_at)}
